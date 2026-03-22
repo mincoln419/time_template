@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Time Template - 시간을 템플릿으로 관리하다</title>
+    <title>Time Template - 목표를 하루로 쪼개다</title>
     <meta
       name="description"
-      content="Time Template과 함께하는 24시간 시간 관리 및 3줄 일기 앱. 체계적인 시간 관리로 완벽한 하루를 만들어보세요"
+      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱. 목표를 세우고, 실행하고, 회고하세요."
     />
     <meta
       name="keywords"
-      content="Time Template, 시간관리, 일기, 생산성, 앱, 다운로드, 민트라일락"
+      content="Time Template, OKR, KPI, 목표관리, 성과, 자기계발, 회고, 시간관리, 생산성, 앱"
     />
 
     <!-- Open Graph Meta Tags -->
     <meta
       property="og:title"
-      content="Time Template - 시간을 템플릿으로 관리하다"
+      content="Time Template - 목표를 하루로 쪼개다"
     />
     <meta
       property="og:description"
-      content="Time Template과 함께하는 24시간 시간 관리 및 3줄 일기 앱"
+      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱"
     />
     <meta
       property="og:image"
@@ -36,11 +36,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Time Template - 시간을 템플릿으로 관리하다"
+      content="Time Template - 목표를 하루로 쪼개다"
     />
     <meta
       name="twitter:description"
-      content="Time Template과 함께하는 24시간 시간 관리 및 3줄 일기 앱"
+      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱"
     />
     <meta
       name="twitter:image"
@@ -357,6 +357,53 @@
         box-shadow: 0 4px 15px rgba(155, 181, 168, 0.4);
       }
 
+      /* Philosophy Section */
+      .philosophy-section {
+        background: #1a2e25;
+        border-radius: 20px;
+        padding: 60px 40px;
+        margin: 40px 0;
+        text-align: center;
+        color: white;
+      }
+
+      .philosophy-cycle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+
+      .philosophy-step {
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: rgba(155, 181, 168, 0.2);
+        border: 1px solid rgba(155, 181, 168, 0.4);
+        border-radius: 30px;
+        padding: 10px 22px;
+        color: #b8d4c7;
+      }
+
+      .philosophy-arrow {
+        font-size: 1.2rem;
+        color: rgba(155, 181, 168, 0.5);
+      }
+
+      .philosophy-message {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.8;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      .philosophy-message strong {
+        color: white;
+        font-weight: 600;
+      }
+
       /* Responsive */
       @media (max-width: 768px) {
         .app-title {
@@ -382,6 +429,19 @@
 
         .diary-section {
           padding: 20px;
+        }
+
+        .philosophy-section {
+          padding: 40px 20px;
+        }
+
+        .philosophy-cycle {
+          gap: 8px;
+        }
+
+        .philosophy-step {
+          font-size: 0.95rem;
+          padding: 8px 16px;
         }
 
         .footer {
@@ -412,9 +472,9 @@
             <img src="assets/icons/icon.png" alt="Time Template 로고" />
           </div>
           <h1 class="app-title">Time Template</h1>
-          <p class="app-subtitle">시간을 템플릿으로 관리하다</p>
+          <p class="app-subtitle">목표를 하루로 쪼개다</p>
           <p class="app-description">
-            체계적인 24시간 시간 관리 및 3줄 일기 앱
+            OKR·KPI 목표를 24시간 템플릿으로 실행하고, 매일 회고로 성장하는 앱
           </p>
         </div>
       </header>
@@ -425,35 +485,34 @@
         <section>
           <h2 class="section-title">주요 기능</h2>
           <p class="section-subtitle">
-            혁신적인 2단계 체크박스 시스템과 감성적인 3줄 일기로 완벽한 하루를
-            만들어보세요
+            목표 실행부터 회고까지, 성과 사이클을 하루 단위로 완성하세요
           </p>
 
           <div class="features">
             <div class="feature">
-              <div class="feature-icon">⏰</div>
-              <h3>24시간 관리</h3>
+              <div class="feature-icon">🎯</div>
+              <h3>OKR 실행 템플릿</h3>
               <p>
-                템플릿 기반으로 하루 일정을 빠르게 설정하고, 2단계 체크박스로
-                계획과 실행을 명확히 구분하여 관리합니다.
+                큰 목표(OKR/KPI)를 오늘의 24시간으로 분해합니다.
+                목표가 일정이 되는 순간, 실행이 시작됩니다.
               </p>
             </div>
 
             <div class="feature">
-              <div class="feature-icon">📖</div>
-              <h3>3줄 일기</h3>
+              <div class="feature-icon">✅</div>
+              <h3>계획 vs 실행 체크</h3>
               <p>
-                "오늘은 어땠나..", "아쉬운 일들!", "내일의 이정표!"로 하루를
-                되돌아보고 내일을 준비하는 따뜻한 일기 시스템입니다.
+                "계획했는가" vs "실제로 했는가"를 2단계로 구분 기록합니다.
+                실행률이 아닌 완료율 기준의 진짜 성과를 확인하세요.
               </p>
             </div>
 
             <div class="feature">
               <div class="feature-icon">📊</div>
-              <h3>통계 분석</h3>
+              <h3>성과 통계</h3>
               <p>
-                실제 완료한 작업 기준의 정확한 통계로 카테고리별 시간 분배와
-                생산성을 시각적으로 확인할 수 있습니다.
+                계획 vs 실행 데이터로 나의 실제 우선순위를 직시합니다.
+                카테고리별 시간 분배로 숨겨진 패턴을 발견하세요.
               </p>
             </div>
 
@@ -476,46 +535,60 @@
           </div>
         </section>
 
-        <!-- 3줄 일기 섹션 -->
+        <!-- 철학 섹션 -->
+        <section class="philosophy-section">
+          <div class="philosophy-cycle">
+            <span class="philosophy-step">목표 설정</span>
+            <span class="philosophy-arrow">→</span>
+            <span class="philosophy-step">하루로 쪼개기</span>
+            <span class="philosophy-arrow">→</span>
+            <span class="philosophy-step">실행</span>
+            <span class="philosophy-arrow">→</span>
+            <span class="philosophy-step">회고</span>
+          </div>
+          <p class="philosophy-message">
+            <strong>성과는 의지가 아니라 시스템에서 나온다.</strong><br />
+            Time Template은 그 시스템입니다.
+          </p>
+        </section>
+
+        <!-- 3줄 회고 섹션 -->
         <section class="diary-section">
-          <h2 class="section-title">3줄 일기 시스템</h2>
+          <h2 class="section-title">3줄 회고 시스템</h2>
           <p class="section-subtitle">
-            하루를 마무리하며 자신과의 대화를 나누는 특별한 시간
+            피드백 루프가 성장을 만든다. 하루 3분으로 1년이 달라집니다.
           </p>
 
           <div class="diary-item">
-            <h4>오늘은 어땠나..</h4>
+            <h4>느낀점</h4>
             <p>
-              오늘 하루의 경험과 감정을 자유롭게 기록해보세요. 긍정적인 순간부터
-              작은 기쁨까지, 하루의 모든 감정을 솔직하게 적어보는 따뜻한
-              시간입니다.
+              오늘 가장 인상적이었던 경험이나 발견을 기록합니다.
+              작은 통찰이 쌓여 나만의 성장 데이터가 됩니다.
             </p>
           </div>
 
           <div class="diary-item">
-            <h4>아쉬운 일들!</h4>
+            <h4>후회하는 점</h4>
             <p>
-              아쉬웠던 일들과 개선점을 솔직하게 적어보세요. 실패나 후회를
-              부끄러워하지 말고, 건설적인 비판과 개선 방향을 찾아보는 성장의
-              시간입니다.
+              더 잘할 수 있었던 것을 솔직하게 직시합니다.
+              회피하지 않고 기록하는 것, 그것이 개선의 시작입니다.
             </p>
           </div>
 
           <div class="diary-item">
-            <h4>내일의 이정표!</h4>
+            <h4>각오</h4>
             <p>
-              내일을 위한 다짐과 목표를 구체적으로 설정해보세요. 실행 가능한
-              계획을 세우고, 작은 이정표들을 하나씩 달성해나가는 희망찬 여정을
-              시작합니다.
+              내일 반드시 실행할 단 하나의 행동을 선언합니다.
+              구체적인 각오가 다음 날의 템플릿을 만듭니다.
             </p>
           </div>
         </section>
 
         <!-- CTA Section -->
         <section class="cta-section">
-          <h2 class="cta-title">지금 시작해보세요!</h2>
+          <h2 class="cta-title">오늘부터 목표를 하루로 만드세요</h2>
           <p class="cta-description">
-            체계적인 시간 관리로 완벽한 하루를 만들어보세요
+            목표를 세우고, 실행하고, 회고하세요. 성과는 시스템에서 나옵니다.
           </p>
           <div class="download-buttons">
             <a href="#" class="download-btn">
