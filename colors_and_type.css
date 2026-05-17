@@ -1,0 +1,159 @@
+/* ============================================================
+   Time Template — Design Tokens
+   Drop this file into any page:
+     <link rel="stylesheet" href="colors_and_type.css">
+   Then use the CSS custom properties directly:
+     color: var(--ink-900); background: var(--sage-500);
+   ============================================================ */
+
+/* Noto Sans KR (Korean). Latin glyphs fall through to the OS
+   system sans via ui-sans-serif, per brand spec. */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  /* -------- Color: brand --------------------------------- */
+  --sage-50:  #F1F5EE;
+  --sage-100: #D6E3D2;   /* active-tab pill background */
+  --sage-300: #B8CDB4;
+  --sage-500: #A8BFA6;   /* app header — the brand color */
+  --sage-700: #5E7A64;   /* CTA fill, active text */
+  --sage-900: #2F4035;
+
+  --cream-100: #FAF6E6;
+  --cream-300: #F2EAD3;   /* checkboxes in logo */
+
+  /* -------- Color: surface ------------------------------- */
+  --paper:     #FAFAF7;   /* page background (off-white, warm) */
+  --surface:   #FFFFFF;   /* cards */
+  --surface-2: #F5F6F2;   /* sunken surfaces, hover */
+  --scrim:     rgba(30, 42, 34, 0.45);
+
+  /* -------- Color: text ----------------------------------
+     One ink hex for body text (KO + EN identical), with
+     lighter steps for secondary/tertiary use. Neutral cool-
+     gray family — no green tint anymore. */
+  --ink-900: #44474B;   /* primary — body text, both languages */
+  --ink-700: #5A5D62;
+  --ink-600: #76797E;   /* secondary */
+  --ink-400: #A0A3A8;   /* tertiary, placeholder */
+  --ink-300: #C8CACD;
+
+  /* -------- Color: line ---------------------------------- */
+  --hairline:        #E6E8E4;
+  --hairline-strong: #D2D6CE;
+
+  /* -------- Color: accent (single — restraint) ---------- */
+  --streak-500: #F2784B;
+  --streak-300: #F7B095;
+
+  /* -------- Color: categories (time tracker) ------------ */
+  --cat-sleep:     #5B6FCB;
+  --cat-physical:  #E89A3C;
+  --cat-mental:    #4FA4E0;
+  --cat-social:    #5CB67A;
+  --cat-spiritual: #9B5BC9;
+  --cat-wasted:    #E55B5B;
+  --cat-other:     #B5B5B5;
+
+  /* -------- Type: families ------------------------------
+     Latin (영문): ui-sans-serif (the system's UI sans).
+     Korean (한글): Noto Sans KR.
+     The browser picks per-glyph from this stack, so mixed-
+     script lines ("Time Template 타임템플릿") render correctly. */
+  --font-sans:    ui-sans-serif, system-ui, -apple-system,
+                  BlinkMacSystemFont, "Segoe UI",
+                  "Noto Sans KR", "Apple SD Gothic Neo",
+                  Helvetica, Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo,
+                  Consolas, monospace;
+
+  /* -------- Type: scale --------------------------------- */
+  --fs-display: 56px;  --lh-display: 1.07; --tr-display: -0.02em;
+  --fs-h1:      40px;  --lh-h1:      1.18; --tr-h1:      -0.015em;
+  --fs-h2:      28px;  --lh-h2:      1.28;
+  --fs-h3:      20px;  --lh-h3:      1.4;
+  --fs-lg:      18px;  --lh-lg:      1.55;
+  --fs-body:    16px;  --lh-body:    1.6;
+  --fs-sm:      14px;  --lh-sm:      1.55;
+  --fs-caption: 12px;  --lh-caption: 1.5;
+
+  /* -------- Spacing scale (4px base) -------------------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* -------- Radii --------------------------------------- */
+  --r-sm:    8px;
+  --r-md:    12px;   /* inputs */
+  --r-lg:    20px;   /* cards */
+  --r-xl:    28px;   /* hero surfaces */
+  --r-pill:  9999px; /* buttons, chips, tab pills */
+  --r-icon:  22%;    /* superellipse-ish app-icon presentation */
+
+  /* -------- Elevation ----------------------------------- */
+  --elev-1: 0 1px 2px rgba(30, 42, 34, 0.04);
+  --elev-2: 0 4px 12px rgba(30, 42, 34, 0.06);
+  --elev-3: 0 12px 32px rgba(30, 42, 34, 0.10);
+
+  /* -------- Motion -------------------------------------- */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:   cubic-bezier(0.42, 0, 1, 1);
+  --ease-both: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:  120ms;
+  --dur-base:  240ms;
+  --dur-slow:  600ms;
+
+  /* -------- Layout -------------------------------------- */
+  --container:        1200px;
+  --container-narrow: 880px;
+  --gutter:           24px;
+}
+
+/* ============================================================
+   Base resets — opt-in: apply by adding class "tt-typography"
+   to a wrapper, so this stylesheet stays drop-in safe.
+   ============================================================ */
+.tt-typography {
+  color: var(--ink-900);
+  background: var(--paper);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.tt-typography :where(h1, h2, h3, h4) { color: var(--ink-900); margin: 0; font-weight: 700; }
+.tt-typography :where(p) { color: var(--ink-700); margin: 0; }
+
+/* -------- Semantic type classes -------- */
+.tt-display { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--tr-display); font-weight: 700; }
+.tt-h1      { font-size: var(--fs-h1);      line-height: var(--lh-h1);      letter-spacing: var(--tr-h1);      font-weight: 700; }
+.tt-h2      { font-size: var(--fs-h2);      line-height: var(--lh-h2);      font-weight: 600; letter-spacing: -0.01em; }
+.tt-h3      { font-size: var(--fs-h3);      line-height: var(--lh-h3);      font-weight: 600; }
+.tt-lg      { font-size: var(--fs-lg);      line-height: var(--lh-lg);      font-weight: 400; }
+.tt-body    { font-size: var(--fs-body);    line-height: var(--lh-body);    font-weight: 400; }
+.tt-sm      { font-size: var(--fs-sm);      line-height: var(--lh-sm);      font-weight: 400; }
+.tt-caption { font-size: var(--fs-caption); line-height: var(--lh-caption); font-weight: 500;
+              letter-spacing: 0.04em; text-transform: none; color: var(--ink-600); }
+
+.tt-mono    { font-family: var(--font-mono); font-feature-settings: "tnum"; }
+.tt-num     { font-variant-numeric: tabular-nums; }
+
+/* -------- Color classes (handy for cards) -------- */
+.tt-fg-1 { color: var(--ink-900); }
+.tt-fg-2 { color: var(--ink-600); }
+.tt-fg-3 { color: var(--ink-400); }
+.tt-bg-paper   { background: var(--paper); }
+.tt-bg-surface { background: var(--surface); }
+.tt-bg-sage    { background: var(--sage-500); color: white; }
