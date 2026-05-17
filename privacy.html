@@ -1,263 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>개인정보처리방침 - Time Template</title>
-    <meta name="description" content="Time Template 개인정보처리방침" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 · 타임템플릿</title>
+<meta name="description" content="타임템플릿 개인정보처리방침">
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/icons/icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/icons/icon.png"
-    />
-    <link rel="apple-touch-icon" href="assets/icons/icon.png" />
-    <link rel="shortcut icon" href="assets/icons/icon.png" />
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="shortcut icon" href="assets/icon.png">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
 
-      body {
-        font-family: "Noto Sans KR", sans-serif;
-        line-height: 1.6;
-        color: #2d3a32;
-        background: linear-gradient(135deg, #9bb5a8 0%, #c8a8d8 100%);
-        min-height: 100vh;
-      }
+  .tt-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 250, 247, 0.86);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .tt-header-inner {
+    max-width: var(--container); margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex; align-items: center; gap: 18px;
+  }
+  .tt-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; color: var(--ink-900); }
+  .tt-logo .mark {
+    width: 28px; height: 28px; border-radius: 8px; overflow: hidden;
+    box-shadow: var(--elev-1);
+  }
+  .tt-back {
+    margin-left: auto;
+    padding: 8px 16px; border-radius: var(--r-pill);
+    border: 1px solid var(--hairline-strong);
+    color: var(--ink-700); font-size: 13px; font-weight: 600;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .tt-back:hover { background: var(--ink-900); color: white; border-color: var(--ink-900); }
 
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+  main {
+    max-width: 800px; margin: 0 auto;
+    padding: 80px var(--gutter) 64px;
+  }
+  h1.page-title {
+    font-size: clamp(34px, 4.5vw, 48px); line-height: 1.1; letter-spacing: -0.02em;
+    font-weight: 700; color: var(--ink-900); margin: 0 0 12px;
+  }
+  .page-sub {
+    color: var(--ink-600); font-size: var(--fs-lg); line-height: var(--lh-lg); margin: 0 0 48px;
+  }
 
-      .header {
-        text-align: center;
-        padding: 40px 0;
-        color: white;
-      }
+  article h2 {
+    font-size: var(--fs-h3); line-height: var(--lh-h3);
+    color: var(--ink-900); font-weight: 700;
+    margin: 40px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  article h3 {
+    font-size: 16px; font-weight: 600;
+    color: var(--ink-900); margin: 24px 0 10px;
+  }
+  article p {
+    color: var(--ink-700); margin: 12px 0;
+    font-size: var(--fs-body); line-height: var(--lh-body);
+  }
+  article ul {
+    margin: 12px 0; padding-left: 20px;
+  }
+  article li {
+    color: var(--ink-700); margin: 6px 0;
+    font-size: var(--fs-body); line-height: var(--lh-body);
+  }
+  article a {
+    color: var(--sage-700); text-decoration: underline;
+  }
+  article strong { color: var(--ink-900); }
 
-      .header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
+  .effective-date {
+    margin-top: 48px; padding: 16px 20px;
+    background: var(--surface-2); border-radius: var(--r-md);
+    color: var(--ink-700); font-size: var(--fs-sm);
+  }
 
-      .header p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
+  .tt-footer {
+    padding: 48px var(--gutter);
+    border-top: 1px solid var(--hairline);
+  }
+  .tt-footer-inner {
+    max-width: var(--container); margin: 0 auto;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    font-size: 13px; color: var(--ink-600);
+  }
+  .tt-footer-inner .tt-spacer { flex: 1; }
+  .tt-footer-inner a:hover { color: var(--ink-900); }
 
-      .content {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        margin: 20px 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
+  @media (max-width: 540px) {
+    main { padding: 48px var(--gutter) 40px; }
+    .tt-logo span:not(.mark) { display: none; }
+  }
+</style>
+</head>
+<body>
 
-      .content h2 {
-        color: #9bb5a8;
-        font-size: 1.5rem;
-        margin: 30px 0 15px 0;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #e8f0ec;
-      }
+<header class="tt-header">
+  <div class="tt-header-inner">
+    <a href="index.html" class="tt-logo">
+      <span class="mark"><img src="assets/logo.jpg" alt=""></span>
+      <span>타임템플릿</span>
+    </a>
+    <a href="index.html" class="tt-back">← 메인으로</a>
+  </div>
+</header>
 
-      .content h3 {
-        color: #2d3a32;
-        font-size: 1.2rem;
-        margin: 20px 0 10px 0;
-      }
+<main>
+  <h1 class="page-title">개인정보처리방침</h1>
+  <p class="page-sub">타임템플릿 개인정보 보호정책</p>
 
-      .content p {
-        margin-bottom: 15px;
-        color: #666;
-      }
+  <article>
+    <h2>1. 개인정보 수집 및 이용 목적</h2>
+    <p>타임템플릿은 다음과 같은 목적으로 개인정보를 수집 및 이용합니다:</p>
+    <ul>
+      <li>서비스 제공 및 계약 이행</li>
+      <li>회원 식별 및 본인 확인</li>
+      <li>고객 상담 및 문의사항 처리</li>
+      <li>서비스 개선 및 신규 서비스 개발</li>
+      <li>마케팅 및 광고 활용 (동의 시)</li>
+    </ul>
 
-      .content ul {
-        margin: 15px 0;
-        padding-left: 20px;
-      }
+    <h2>2. 수집하는 개인정보 항목</h2>
+    <h3>필수 정보</h3>
+    <ul>
+      <li>이메일 주소</li>
+      <li>비밀번호 (암호화하여 저장)</li>
+      <li>닉네임</li>
+    </ul>
 
-      .content li {
-        margin-bottom: 8px;
-        color: #666;
-      }
+    <h3>선택 정보</h3>
+    <ul>
+      <li>프로필 사진</li>
+      <li>생년월일</li>
+      <li>성별</li>
+    </ul>
 
-      .back-link {
-        display: inline-block;
-        margin-top: 30px;
-        padding: 12px 24px;
-        background: linear-gradient(135deg, #9bb5a8, #c8a8d8);
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
-        font-weight: 500;
-        transition: transform 0.3s ease;
-      }
+    <h2>3. 개인정보 수집 방법</h2>
+    <ul>
+      <li>회원가입 시 직접 입력</li>
+      <li>서비스 이용 중 자동 수집 (앱 사용 로그, 기기 정보 등)</li>
+      <li>고객 상담 시 제공</li>
+    </ul>
 
-      .back-link:hover {
-        transform: translateY(-2px);
-      }
+    <h2>4. 개인정보 보유 및 이용 기간</h2>
+    <p>회원 탈퇴 시까지 개인정보를 보유하며, 탈퇴 후에는 즉시 삭제합니다. 단, 다음의 경우에는 해당 기간 동안 보관합니다:</p>
+    <ul>
+      <li>관련 법령에 의한 보존 의무가 있는 경우: 해당 법령에서 정한 기간</li>
+      <li>분쟁 해결을 위한 경우: 분쟁 해결 시까지</li>
+    </ul>
 
-      .footer {
-        text-align: center;
-        padding: 20px 0;
-        color: white;
-        opacity: 0.8;
-      }
+    <h2>5. 개인정보 제3자 제공</h2>
+    <p>타임템플릿은 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다:</p>
+    <ul>
+      <li>이용자가 사전에 동의한 경우</li>
+      <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+    </ul>
 
-      @media (max-width: 768px) {
-        .container {
-          padding: 10px;
-        }
+    <h2>6. 개인정보 처리의 위탁</h2>
+    <p>현재 타임템플릿은 개인정보 처리업무를 외부에 위탁하지 않습니다. 향후 위탁이 필요한 경우, 위탁받는 자와 위탁업무의 내용을 사전에 공지하고 동의를 받겠습니다.</p>
 
-        .content {
-          padding: 20px;
-        }
+    <h2>7. 개인정보의 안전성 확보 조치</h2>
+    <ul>
+      <li>개인정보 암호화</li>
+      <li>해킹 등에 대비한 기술적 대책</li>
+      <li>개인정보에 대한 접근 제한</li>
+      <li>접속기록의 보관 및 위변조 방지</li>
+      <li>개인정보의 안전한 저장을 위한 기술적/물리적 보안 대책</li>
+    </ul>
 
-        .header h1 {
-          font-size: 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <h1>개인정보처리방침</h1>
-        <p>Time Template 개인정보 보호정책</p>
-      </header>
+    <h2>8. 개인정보 보호책임자</h2>
+    <p>개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다:</p>
+    <ul>
+      <li>개인정보 보호책임자: 타임템플릿 개발팀</li>
+      <li>연락처: <a href="https://github.com/mincoln419/time_template/issues" target="_blank" rel="noopener">GitHub Issues</a></li>
+    </ul>
 
-      <div class="content">
-        <h2>1. 개인정보 수집 및 이용 목적</h2>
-        <p>
-          Time Template은 다음과 같은 목적으로 개인정보를 수집 및 이용합니다:
-        </p>
-        <ul>
-          <li>서비스 제공 및 계약 이행</li>
-          <li>회원 식별 및 본인 확인</li>
-          <li>고객 상담 및 문의사항 처리</li>
-          <li>서비스 개선 및 신규 서비스 개발</li>
-          <li>마케팅 및 광고 활용 (동의 시)</li>
-        </ul>
+    <h2>9. 개인정보 처리방침의 변경</h2>
+    <p>이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.</p>
 
-        <h2>2. 수집하는 개인정보 항목</h2>
-        <h3>필수 정보</h3>
-        <ul>
-          <li>이메일 주소</li>
-          <li>비밀번호 (암호화하여 저장)</li>
-          <li>닉네임</li>
-        </ul>
-
-        <h3>선택 정보</h3>
-        <ul>
-          <li>프로필 사진</li>
-          <li>생년월일</li>
-          <li>성별</li>
-        </ul>
-
-        <h2>3. 개인정보 수집 방법</h2>
-        <ul>
-          <li>회원가입 시 직접 입력</li>
-          <li>서비스 이용 중 자동 수집 (앱 사용 로그, 기기 정보 등)</li>
-          <li>고객 상담 시 제공</li>
-        </ul>
-
-        <h2>4. 개인정보 보유 및 이용 기간</h2>
-        <p>
-          회원 탈퇴 시까지 개인정보를 보유하며, 탈퇴 후에는 즉시 삭제합니다. 단,
-          다음의 경우에는 해당 기간 동안 보관합니다:
-        </p>
-        <ul>
-          <li>
-            관련 법령에 의한 보존 의무가 있는 경우: 해당 법령에서 정한 기간
-          </li>
-          <li>분쟁 해결을 위한 경우: 분쟁 해결 시까지</li>
-        </ul>
-
-        <h2>5. 개인정보 제3자 제공</h2>
-        <p>
-          Time Template은 원칙적으로 이용자의 개인정보를 외부에 제공하지
-          않습니다. 다만, 다음의 경우에는 예외로 합니다:
-        </p>
-        <ul>
-          <li>이용자가 사전에 동의한 경우</li>
-          <li>
-            법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에
-            따라 수사기관의 요구가 있는 경우
-          </li>
-        </ul>
-
-        <h2>6. 개인정보 처리의 위탁</h2>
-        <p>
-          현재 Time Template은 개인정보 처리업무를 외부에 위탁하지 않습니다.
-          향후 위탁이 필요한 경우, 위탁받는 자와 위탁업무의 내용을 사전에
-          공지하고 동의를 받겠습니다.
-        </p>
-
-        <h2>7. 개인정보의 안전성 확보 조치</h2>
-        <ul>
-          <li>개인정보 암호화</li>
-          <li>해킹 등에 대비한 기술적 대책</li>
-          <li>개인정보에 대한 접근 제한</li>
-          <li>접속기록의 보관 및 위변조 방지</li>
-          <li>개인정보의 안전한 저장을 위한 기술적/물리적 보안 대책</li>
-        </ul>
-
-        <h2>8. 개인정보 보호책임자</h2>
-        <p>
-          개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한
-          정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보
-          보호책임자를 지정하고 있습니다:
-        </p>
-        <ul>
-          <li>개인정보 보호책임자: Time Template 개발팀</li>
-          <li>
-            연락처:
-            <a href="https://github.com/mincoln419/time_template/issues"
-              >GitHub Issues</a
-            >
-          </li>
-        </ul>
-
-        <h2>9. 개인정보 처리방침의 변경</h2>
-        <p>
-          이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른
-          변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일
-          전부터 공지사항을 통하여 고지할 것입니다.
-        </p>
-
-        <p><strong>시행일: 2025년 9월 13일</strong></p>
-
-        <a href="index.html" class="back-link">← 메인으로 돌아가기</a>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2025 Time Template. 모든 권리 보유. 비공개 라이선스.</p>
-      </footer>
+    <div class="effective-date">
+      <strong>시행일: 2025년 9월 13일</strong>
     </div>
-  </body>
+  </article>
+</main>
+
+<footer class="tt-footer">
+  <div class="tt-footer-inner">
+    <span>© 2026 타임템플릿</span>
+    <span class="tt-spacer"></span>
+    <a href="privacy.html">개인정보</a>
+    <a href="terms.html">이용약관</a>
+    <a href="https://github.com/mincoln419/time_template/issues" target="_blank" rel="noopener">문의</a>
+  </div>
+</footer>
+
+</body>
 </html>
