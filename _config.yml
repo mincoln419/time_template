@@ -20,7 +20,7 @@ seo:
   type: WebSite
   name: 타임템플릿
   description: 24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱
-  image: /assets/screens/09-home-radial.jpg
+  image: /assets/screens/ko/09-home-radial.jpg
   twitter:
     card: summary_large_image
 

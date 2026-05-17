@@ -74,11 +74,13 @@ npm start          # http-server -p 8080 (브라우저 자동 오픈)
 페이지의 모든 텍스트는 `data-i18n` 키로 묶여 있고, 사용자가 KO/EN 토글 시
 이 사전에서 값을 가져와 교체됩니다. 선택한 언어는 `localStorage`에 저장됩니다.
 
-### 2) 앱 스크린샷 교체
-`assets/screens/` 의 4개 JPG를 동일한 파일명으로 덮어쓰면 됩니다.
+### 2) 앱 스크린샷 교체 (한/영 별도)
+`assets/screens/ko/` (한국어), `assets/screens/en/` (영어) 폴더에 동일한 파일명으로 4개씩 배치합니다.
 - `03-templates-list.jpg` — 템플릿 섹션
-- `06-journal-evening.jpg`, `07-journal-morning.jpg` — 일기 섹션
+- `06-journal-morning.jpg`, `07-journal-evening.jpg` — 일기 섹션
 - `09-home-radial.jpg` — Hero + OG 이미지
+
+영문 이미지가 없는 경우 자동으로 한국어 이미지로 fallback 됩니다 (`img.onerror`). 영어 화면 캡처 가능 시 `assets/screens/en/`에 동일 파일명으로 올리면 토글 시 자동 표시.
 
 ### 3) 디자인 토큰(컬러/타입) 수정
 `colors_and_type.css` 의 `:root` 변수만 바꾸면 모든 페이지에 일괄 반영됩니다.

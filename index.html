@@ -11,7 +11,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="타임템플릿 · Time Template — 하루를 디자인하다">
 <meta property="og:description" content="24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱">
-<meta property="og:image" content="https://mincoln419.github.io/time_template/assets/screens/09-home-radial.jpg">
+<meta property="og:image" content="https://mincoln419.github.io/time_template/assets/screens/ko/09-home-radial.jpg">
 <meta property="og:url" content="https://mincoln419.github.io/time_template/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="타임템플릿 · Time Template — 하루를 디자인하다">
 <meta name="twitter:description" content="24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱">
-<meta name="twitter:image" content="https://mincoln419.github.io/time_template/assets/screens/09-home-radial.jpg">
+<meta name="twitter:image" content="https://mincoln419.github.io/time_template/assets/screens/ko/09-home-radial.jpg">
 
 <link rel="canonical" href="https://mincoln419.github.io/time_template/">
 
@@ -93,7 +93,7 @@
         <span class="tt-phone-btn tt-phone-btn--voldown"></span>
         <span class="tt-phone-btn tt-phone-btn--power"></span>
         <div class="tt-phone-screen">
-          <img src="assets/screens/09-home-radial.jpg" alt="Time Template home screen">
+          <img src="assets/screens/ko/09-home-radial.jpg" alt="Time Template home screen" data-img-key="09-home-radial">
         </div>
       </div>
     </div>
@@ -272,7 +272,7 @@
         <span class="tt-phone-btn tt-phone-btn--voldown"></span>
         <span class="tt-phone-btn tt-phone-btn--power"></span>
         <div class="tt-phone-screen">
-          <img src="assets/screens/03-templates-list.jpg" alt="">
+          <img src="assets/screens/ko/03-templates-list.jpg" alt="" data-img-key="03-templates-list">
         </div>
       </div>
     </div>
@@ -296,9 +296,9 @@
           <span class="tt-phone-btn tt-phone-btn--voldown"></span>
           <span class="tt-phone-btn tt-phone-btn--power"></span>
           <div class="tt-phone-screen">
-            <img src="assets/screens/06-journal-morning.jpg" alt="">
-            <span class="tt-tw tt-tw--mo1" data-tw-text="새 기능 4시간 완성하기"></span>
-            <span class="tt-tw tt-tw--mo2" data-tw-text="API 설계 마무리" data-tw-delay="2"></span>
+            <img src="assets/screens/ko/06-journal-morning.jpg" alt="" data-img-key="06-journal-morning">
+            <span class="tt-tw tt-tw--mo1" data-tw-text="새 기능 4시간 완성하기" data-tw-text-en="Ship new feature in 4h"></span>
+            <span class="tt-tw tt-tw--mo2" data-tw-text="API 설계 마무리" data-tw-text-en="Finalize API design" data-tw-delay="2"></span>
           </div>
         </div>
         <!-- 저녁: 회고 (이미지 위 타이프라이터 2개) -->
@@ -308,9 +308,9 @@
           <span class="tt-phone-btn tt-phone-btn--voldown"></span>
           <span class="tt-phone-btn tt-phone-btn--power"></span>
           <div class="tt-phone-screen">
-            <img src="assets/screens/07-journal-evening.jpg" alt="">
-            <span class="tt-tw tt-tw--ev1" data-tw-text="좋은 회의에서 좋은 아이디어를 얻었다."></span>
-            <span class="tt-tw tt-tw--ev2" data-tw-text="새 기능 출시에 도움이 됐다." data-tw-delay="2.5"></span>
+            <img src="assets/screens/ko/07-journal-evening.jpg" alt="" data-img-key="07-journal-evening">
+            <span class="tt-tw tt-tw--ev1" data-tw-text="좋은 회의에서 좋은 아이디어를 얻었다." data-tw-text-en="Great meeting sparked a great idea."></span>
+            <span class="tt-tw tt-tw--ev2" data-tw-text="새 기능 출시에 도움이 됐다." data-tw-text-en="Helped ship the new feature." data-tw-delay="2.5"></span>
           </div>
         </div>
       </div>
@@ -449,6 +449,18 @@
       const key = el.dataset.i18n;
       if (dict[key] && dict[key][lang] != null) el.innerHTML = dict[key][lang];
     });
+    // 언어별 스크린샷 이미지 스왑 (en 파일 누락 시 onerror로 ko fallback)
+    document.querySelectorAll("[data-img-key]").forEach(img => {
+      const key = img.dataset.imgKey;
+      img.dataset.imgFallback = "";
+      img.onerror = function() {
+        if (this.dataset.imgFallback !== "ko" && lang !== "ko") {
+          this.dataset.imgFallback = "ko";
+          this.src = `assets/screens/ko/${key}.jpg`;
+        }
+      };
+      img.src = `assets/screens/${lang}/${key}.jpg`;
+    });
     document.querySelectorAll(".tt-lang button").forEach(b => {
       b.classList.toggle("active", b.dataset.lang === lang);
     });
@@ -474,29 +486,37 @@
   // Initial reveal for above-fold
   setTimeout(() => document.querySelectorAll(".tt-hero .tt-reveal").forEach(el => el.classList.add("in")), 80);
 
-  // Journal 이미지 위 타이프라이터 — 화면에 들어올 때 시작, 무한 루프
+  // Journal 이미지 위 타이프라이터 — 화면에 들어올 때 시작, 무한 루프, 언어 따라 자동 스왑
   const journalTws = document.querySelectorAll(".tt-tw");
   if (journalTws.length > 0) {
     const TYPE_MS = 90, DEL_MS = 35, HOLD_TYPED = 2800, HOLD_EMPTY = 600;
-    const typeLoop = (el, text, i = 0, deleting = false) => {
-      if (!deleting && i <= text.length) {
-        el.textContent = text.slice(0, i);
-        setTimeout(() => typeLoop(el, text, i + 1, false), TYPE_MS);
-      } else if (!deleting) {
-        setTimeout(() => typeLoop(el, text, text.length, true), HOLD_TYPED);
-      } else if (i >= 0) {
-        el.textContent = text.slice(0, i);
-        setTimeout(() => typeLoop(el, text, i - 1, true), DEL_MS);
+    const getTwText = (el) => {
+      const lang = document.documentElement.lang || "ko";
+      return (lang === "en" && el.dataset.twTextEn) || el.dataset.twText || "";
+    };
+    const typeLoop = (el, i = 0, deleting = false) => {
+      const text = getTwText(el);
+      const safeI = Math.min(i, text.length);
+      if (!deleting && safeI <= text.length) {
+        el.textContent = text.slice(0, safeI);
+        if (safeI === text.length) {
+          setTimeout(() => typeLoop(el, text.length, true), HOLD_TYPED);
+        } else {
+          setTimeout(() => typeLoop(el, safeI + 1, false), TYPE_MS);
+        }
+      } else if (deleting && safeI > 0) {
+        el.textContent = text.slice(0, safeI - 1);
+        setTimeout(() => typeLoop(el, safeI - 1, true), DEL_MS);
       } else {
-        setTimeout(() => typeLoop(el, text, 0, false), HOLD_EMPTY);
+        el.textContent = "";
+        setTimeout(() => typeLoop(el, 0, false), HOLD_EMPTY);
       }
     };
     const startTw = (el) => {
       if (el.dataset.twStarted) return;
       el.dataset.twStarted = "1";
-      const text = el.dataset.twText || "";
       const delay = parseFloat(el.dataset.twDelay || 0) * 1000;
-      setTimeout(() => typeLoop(el, text), delay);
+      setTimeout(() => typeLoop(el), delay);
     };
     const twObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
