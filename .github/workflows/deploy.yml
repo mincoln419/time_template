@@ -29,7 +29,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          cname: shinui.codenyang.com # 커스텀 도메인이 있다면 설정
 
 
 

@@ -1,33 +1,27 @@
 {
-  "name": "shinui-website",
+  "name": "time-template-landing",
   "version": "1.0.0",
-  "description": "시누이 앱 공식 웹사이트 - GitHub Pages",
+  "description": "타임템플릿 앱 공식 랜딩 페이지 - GitHub Pages",
   "main": "index.html",
   "scripts": {
     "start": "http-server -p 8080 -o",
-    "build": "echo 'Static site - no build needed'",
-    "deploy": "echo 'Deploy to GitHub Pages'"
+    "build": "echo 'Static site - no build needed'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mincoln419/shinui-website.git"
+    "url": "https://github.com/mincoln419/time_template.git"
   },
   "keywords": [
-    "shinui",
+    "time-template",
     "time-management",
     "productivity",
-    "app",
-    "website",
+    "landing-page",
     "github-pages"
   ],
-  "author": "CodeNYang",
+  "author": "mincoln419",
   "license": "MIT",
   "devDependencies": {
     "http-server": "^14.1.1"
   },
-  "homepage": "https://mincoln419.github.io/shinui-website"
+  "homepage": "https://mincoln419.github.io/time_template"
 }
-
-
-
-
