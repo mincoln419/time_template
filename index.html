@@ -289,19 +289,29 @@
     </div>
     <div class="tt-split-figure tt-reveal">
       <div class="tt-two-phones">
+        <!-- 아침: 오늘 목표 (이미지 위 타이프라이터 2개, 입력 필드 위에 텍스트 타이핑) -->
         <div class="tt-phone tt-phone--sm">
           <span class="tt-phone-btn tt-phone-btn--silent"></span>
           <span class="tt-phone-btn tt-phone-btn--volup"></span>
           <span class="tt-phone-btn tt-phone-btn--voldown"></span>
           <span class="tt-phone-btn tt-phone-btn--power"></span>
-          <div class="tt-phone-screen"><img src="assets/screens/06-journal-evening.jpg" alt=""></div>
+          <div class="tt-phone-screen">
+            <img src="assets/screens/06-journal-morning.jpg" alt="">
+            <span class="tt-tw tt-tw--mo1" data-tw-text="새 기능 4시간 완성하기"></span>
+            <span class="tt-tw tt-tw--mo2" data-tw-text="API 설계 마무리" data-tw-delay="2"></span>
+          </div>
         </div>
+        <!-- 저녁: 회고 (이미지 위 타이프라이터 2개) -->
         <div class="tt-phone tt-phone--sm">
           <span class="tt-phone-btn tt-phone-btn--silent"></span>
           <span class="tt-phone-btn tt-phone-btn--volup"></span>
           <span class="tt-phone-btn tt-phone-btn--voldown"></span>
           <span class="tt-phone-btn tt-phone-btn--power"></span>
-          <div class="tt-phone-screen"><img src="assets/screens/07-journal-morning.jpg" alt=""></div>
+          <div class="tt-phone-screen">
+            <img src="assets/screens/07-journal-evening.jpg" alt="">
+            <span class="tt-tw tt-tw--ev1" data-tw-text="좋은 회의에서 좋은 아이디어를 얻었다."></span>
+            <span class="tt-tw tt-tw--ev2" data-tw-text="새 기능 출시에 도움이 됐다." data-tw-delay="2.5"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -463,6 +473,38 @@
 
   // Initial reveal for above-fold
   setTimeout(() => document.querySelectorAll(".tt-hero .tt-reveal").forEach(el => el.classList.add("in")), 80);
+
+  // Journal 이미지 위 타이프라이터 — 화면에 들어올 때 시작, 무한 루프
+  const journalTws = document.querySelectorAll(".tt-tw");
+  if (journalTws.length > 0) {
+    const TYPE_MS = 90, DEL_MS = 35, HOLD_TYPED = 2800, HOLD_EMPTY = 600;
+    const typeLoop = (el, text, i = 0, deleting = false) => {
+      if (!deleting && i <= text.length) {
+        el.textContent = text.slice(0, i);
+        setTimeout(() => typeLoop(el, text, i + 1, false), TYPE_MS);
+      } else if (!deleting) {
+        setTimeout(() => typeLoop(el, text, text.length, true), HOLD_TYPED);
+      } else if (i >= 0) {
+        el.textContent = text.slice(0, i);
+        setTimeout(() => typeLoop(el, text, i - 1, true), DEL_MS);
+      } else {
+        setTimeout(() => typeLoop(el, text, 0, false), HOLD_EMPTY);
+      }
+    };
+    const startTw = (el) => {
+      if (el.dataset.twStarted) return;
+      el.dataset.twStarted = "1";
+      const text = el.dataset.twText || "";
+      const delay = parseFloat(el.dataset.twDelay || 0) * 1000;
+      setTimeout(() => typeLoop(el, text), delay);
+    };
+    const twObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { startTw(e.target); twObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    journalTws.forEach(t => twObs.observe(t));
+  }
 
   // Dial press-and-hold: 버튼을 누르고 있는 동안만 해당 링을 진하게 + 확대해서 강조
   const dialSection = document.querySelector(".tt-dial-section");
