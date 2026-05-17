@@ -1,615 +1,123 @@
-# ⏰ Time Template - 시간 관리 및 성장 코칭 앱
+# 타임템플릿 랜딩 페이지
 
-> **"시간을 템플릿으로 관리하다"**  
-> 체계적인 시간 관리와 3줄 일기로 완벽한 하루를 만들어보세요
+> 타임템플릿(Time Template) 모바일 앱 공식 랜딩 페이지
 
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
-![Easy Localization](https://img.shields.io/badge/Easy_Localization-4285F4?style=flat-square&logo=google&logoColor=white)
+![Live](https://img.shields.io/badge/Live-mincoln419.github.io%2Ftime__template-A8BFA6?style=flat-square)
+![Static Site](https://img.shields.io/badge/Static-HTML%20%2B%20CSS%20%2B%20JS-44474B?style=flat-square)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Deployed-5E7A64?style=flat-square)
 
 ---
 
-## 🎯 브랜드 스토리
+## 🌐 라이브 사이트
 
-### 📝 **"Time Template"의 의미**
+**<https://mincoln419.github.io/time_template/>**
 
-- **Time**: 시간
-- **Template**: 템플릿, 틀, 양식
-
-→ **"Time Template = 시간의 템플릿"**  
-"내 시간을 체계적으로 관리하는 템플릿 앱"이라는 브랜딩
-
-### 🏷️ **브랜드 태그라인**
-
-- "Time Template – 체계적인 시간 관리"
-- "시간을 템플릿으로 관리하다"
-- "나만의 시간 관리 템플릿"
+이 레포지토리는 타임템플릿 앱 자체가 아니라, 앱을 소개하는 **정적 랜딩 페이지**입니다.
+실제 앱 코드는 별도 레포지토리에서 관리됩니다.
 
 ---
 
-## 🌟 주요 기능
+## 🧱 스택
 
-### 🏠 **홈 화면 - 24시간 관리**
-
-- **템플릿 기반 일정 생성**: 미리 만들어둔 템플릿으로 하루 일정을 빠르게 설정
-- **2단계 체크박스 시스템**:
-  - 🟨 **예정된 스케줄 완료** (가운데 체크박스): 계획대로 진행했는지 체크
-  - 🟩 **실제 한 일 확정** (오른쪽 체크박스): 실제로 완료한 작업 확정
-- **시간대별 관리**: 0시~23시까지 시간대별 세부 관리
-- **일괄 처리**: 전체 작업 일괄 체크/해제 가능
-- **실시간 편집**: 계획된 내용과 실제 수행한 내용을 별도로 기록
-
-### 📖 **3줄 일기**
-
-- **오늘은 어땠나..**: 오늘 하루의 경험과 감정을 자유롭게 기록
-- **아쉬운 일들!**: 아쉬웠던 일들과 개선점을 솔직하게 적어보기
-- **내일의 이정표!**: 내일을 위한 다짐과 목표를 구체적으로 설정
-- **날짜별 관리**: 과거 일기 조회 및 수정 가능
-
-### 📋 **템플릿 관리**
-
-- **무제한 템플릿**: 기본 사용자 2개, 프리미엄 사용자 무제한
-- **시간대별 설정**: 각 시간대별 활동과 카테고리 미리 설정
-- **카테고리 분류**: 영적/지적/사회적/신체적/수면/낭비 6가지 분류
-- **기본 템플릿 제공**: 평일/주말 기본 템플릿 자동 생성
-
-### 📊 **통계 및 분석**
-
-- **완료율 분석**: 실제 완료한 작업 기준 통계
-- **카테고리별 분석**: 각 영역별 시간 분배 현황
-- **시각적 대시보드**: 진행률 바, 색상별 분류, 비율 표시
-- **날짜별 조회**: 특정 날짜의 성과 분석 가능
-
-### ⚙️ **설정 및 사용자 관리**
-
-- **다국어 지원**: 한국어/영어 완전 지원
-- **다크/라이트 테마**: 사용자 선호에 맞는 테마 설정
-- **사용자 인증**: 이메일 기반 로그인/회원가입
-- **프리미엄 구독**: 무제한 템플릿, 광고 제거 등
-- **로컬 데이터베이스**: SQLite 기반 빠른 성능
+- **HTML / CSS / JavaScript** (Vanilla, 빌드 도구 없음)
+- **디자인 토큰 시스템** — CSS Custom Properties 기반 (`colors_and_type.css`)
+- **Lucide Icons** — CDN
+- **Google Fonts** — Noto Sans KR
+- **Jekyll** — GitHub Pages 호환 메타데이터(`_config.yml`)
+- **GitHub Actions** — `peaceiris/actions-gh-pages` 자동 배포
 
 ---
 
-## 🏗️ 프로젝트 구조
+## 📁 디렉토리 구조
 
 ```
-times_line/
-├── 📱 Frontend (Flutter App)
-│   ├── lib/
-│   │   ├── core/                 # 핵심 설정
-│   │   │   ├── routes/           # 라우팅 설정 (GoRouter)
-│   │   │   └── theme/            # 테마 설정
-│   │   ├── data/                 # 데이터 레이어
-│   │   │   ├── models/           # 데이터 모델 (Freezed)
-│   │   │   ├── repositories/     # 데이터 저장소
-│   │   │   └── services/         # 데이터베이스 서비스 (SQLite)
-│   │   ├── domain/              # 도메인 레이어
-│   │   │   ├── entities/         # 도메인 엔티티
-│   │   │   └── repositories/     # 도메인 인터페이스
-│   │   ├── presentation/         # 프레젠테이션 레이어
-│   │   │   ├── screens/          # 화면 위젯
-│   │   │   ├── providers/        # 상태 관리 (Riverpod)
-│   │   │   └── widgets/          # 재사용 위젯
-│   │   └── main.dart            # 앱 진입점
-│   ├── assets/                  # 에셋 리소스
-│   │   ├── images/              # 이미지 파일
-│   │   ├── icons/               # 아이콘 파일
-│   │   └── translations/        # 다국어 번역 파일
-│   └── android/ios/             # 플랫폼별 설정
+time_template/
+├── index.html              # 랜딩 페이지 본문
+├── privacy.html            # 개인정보처리방침
+├── terms.html              # 이용약관
+├── colors_and_type.css     # 디자인 토큰 (컬러/타입/스페이싱/그림자)
+├── landing.css             # 랜딩 페이지 컴포넌트 스타일
+├── _config.yml             # Jekyll/SEO 설정
+├── _redirects              # GitHub Pages 리다이렉트
+├── package.json            # 로컬 미리보기용 (http-server)
+├── LICENSE                 # MIT
+├── assets/
+│   ├── icon.png            # favicon
+│   ├── logo.jpg            # 헤더 로고
+│   └── screens/            # 앱 스크린샷 (OG 이미지 포함)
+└── .github/workflows/
+    └── deploy.yml          # main 푸시 시 자동 배포
 ```
 
 ---
 
-## 🚀 시작하기
-
-### 📋 필수 조건
-
-- **Flutter SDK**: 3.8.1 이상
-- **Dart SDK**: 포함됨
-- **개발 환경**: Android Studio, VS Code, 또는 IntelliJ IDEA
-
-### ⚡ 빠른 시작
-
-#### 1️⃣ 프로젝트 클론
+## 💻 로컬 미리보기
 
 ```bash
-git clone <repository-url>
-cd times_line
+npm install
+npm start          # http-server -p 8080 (브라우저 자동 오픈)
 ```
 
-#### 2️⃣ Flutter 앱 실행
-
-```bash
-# 의존성 설치
-flutter pub get
-
-# 코드 생성 (Freezed, json_serializable)
-dart run build_runner build
-
-# 앱 실행
-flutter run
-```
-
-### 🔧 개발 환경 설정
-
-#### Flutter 개발 설정
-
-```bash
-# Flutter Doctor 체크
-flutter doctor
-
-# 플랫폼별 빌드
-flutter build apk          # Android APK
-flutter build ios          # iOS (macOS 필요)
-flutter build web          # Web
-```
-
-#### 코드 생성 명령어
-
-```bash
-# 모든 generated 파일 재생성
-dart run build_runner build --delete-conflicting-outputs
-
-# 파일 변경 감지하며 자동 생성
-dart run build_runner watch
-```
+`http://localhost:8080`에서 확인 가능합니다.
 
 ---
 
-## 🛠️ 개발 가이드
+## ✏️ 컨텐츠 수정 가이드
 
-### 📁 주요 파일 설명
+### 1) 카피(문구) 수정 — KO/EN 동시
+`index.html` 하단의 `<script>` 블록 안 `dict` 객체를 수정합니다.
 
-#### **핵심 데이터 모델**
-
-- `DailyTask`: 일일 할일 관리 (2단계 체크박스)
-- `Template`: 시간대별 템플릿
-- `ThreeLineDiary`: 3줄 일기
-- `User`: 사용자 및 구독 관리
-- `TaskType`: 6가지 활동 카테고리
-
-#### **핵심 서비스**
-
-- `DatabaseService`: SQLite DB 통합 관리
-- `AuthService`: 사용자 인증 처리
-- `LocaleProvider`: 다국어 설정 관리
-
-#### **주요 화면**
-
-- `HomeScreen`: 24시간 일정 관리 메인 화면
-- `DiaryScreen`: 3줄 일기 작성/조회
-- `TemplateScreen`: 템플릿 목록 및 관리
-- `StatisticsScreen`: 통계 및 분석
-- `SettingsScreen`: 설정 및 사용자 관리
-
-### 🎯 개발 워크플로우
-
-#### 1️⃣ 새로운 기능 개발
-
-```bash
-# 1. 브랜치 생성
-git checkout -b feature/새기능명
-
-# 2. 모델 변경 시 코드 생성
-dart run build_runner build
-
-# 3. 테스트
-flutter test
-
-# 4. 빌드 확인
-flutter build apk --debug
+```js
+"hero.h1": { ko: "하루를<br>디자인하다.", en: "Design<br>your day." }
 ```
 
-#### 2️⃣ 상태 관리 패턴 (Riverpod)
+페이지의 모든 텍스트는 `data-i18n` 키로 묶여 있고, 사용자가 KO/EN 토글 시
+이 사전에서 값을 가져와 교체됩니다. 선택한 언어는 `localStorage`에 저장됩니다.
 
-```dart
-// Provider 생성
-final dataProvider = StateNotifierProvider<DataNotifier, DataState>((ref) {
-  return DataNotifier();
-});
+### 2) 앱 스크린샷 교체
+`assets/screens/` 의 4개 JPG를 동일한 파일명으로 덮어쓰면 됩니다.
+- `03-templates-list.jpg` — 템플릿 섹션
+- `06-journal-evening.jpg`, `07-journal-morning.jpg` — 일기 섹션
+- `09-home-radial.jpg` — Hero + OG 이미지
 
-// 위젯에서 사용
-class MyWidget extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(dataProvider);
-    return Text(data.toString());
-  }
-}
-```
+### 3) 디자인 토큰(컬러/타입) 수정
+`colors_and_type.css` 의 `:root` 변수만 바꾸면 모든 페이지에 일괄 반영됩니다.
+- 브랜드 컬러: `--sage-500`, `--sage-700`, `--cream-100`
+- 카테고리 컬러: `--cat-sleep`, `--cat-physical` 등 7종
+- 텍스트 컬러: `--ink-900` ~ `--ink-300`
 
-#### 3️⃣ 다국어 지원
-
-```dart
-// 번역 파일에 키 추가
-// assets/translations/ko.json
-{
-  "new_key": "새로운 텍스트"
-}
-
-// assets/translations/en.json
-{
-  "new_key": "New Text"
-}
-
-// 코드에서 사용
-Text('new_key'.tr())
-```
+### 4) 법적 페이지 (`privacy.html` / `terms.html`)
+법조항 본문만 수정하세요. 스타일은 `colors_and_type.css` 토큰을 공유합니다.
 
 ---
 
-## 📱 사용 가이드
+## 🚀 배포
 
-### 🏁 첫 실행 시 설정
-
-1. **앱 설치 후 첫 실행**
-
-   - 자동으로 기본 템플릿 생성됨 (평일용, 주말용)
-   - 오늘 날짜의 일일 태스크가 자동 생성됨
-
-2. **언어 설정**
-
-   - 설정 → 언어 선택에서 한국어/영어 선택
-   - 즉시 UI 언어 변경됨
-
-3. **템플릿 설정**
-
-   - 템플릿 탭에서 기본 템플릿 수정
-   - 시간대별로 주요 활동과 카테고리 설정
-   - 새 템플릿 생성 가능 (무료: 2개, 프리미엄: 무제한)
-
-4. **일일 사용 패턴**
-   - 홈 화면에서 템플릿 선택 → 확정
-   - 하루 진행하면서 체크박스 단계적 체크
-   - 저녁에 3줄 일기 작성
-   - 통계에서 성과 분석
-
-### 🎯 효과적인 사용법
-
-#### **2단계 체크박스 활용법**
-
-1. **1단계 (예정된 스케줄 완료)**: 계획대로 시간을 사용했는지 체크
-2. **2단계 (실제 한 일 확정)**: 실제로 의미있는 성과를 얻었는지 체크
-3. **통계는 2단계 기준**으로 산출되어 정확한 성과 측정
-
-#### **카테고리별 균형 잡기**
-
-- **영적**: 기도, 명상, 영성 활동
-- **지적**: 독서, 학습, 업무, 창작
-- **사회적**: 인간관계, 소통, 네트워킹
-- **신체적**: 운동, 식사, 건강 관리
-- **수면**: 휴식, 잠
-- **낭비**: 개선이 필요한 시간 (솔직하게 기록)
-
-#### **3줄 일기 작성 팁**
-
-- **오늘은 어땠나..**: 구체적인 긍정 경험과 감정을 자유롭게 기록
-- **아쉬운 일들!**: 건설적 비판과 개선 방향을 솔직하게 적어보기
-- **내일의 이정표!**: 내일 실행 가능한 구체적 계획과 다짐
-
----
-
-## 🔮 개발 로드맵
-
-### 🚀 **단기 계획 (1-2개월)**
-
-#### **알림 시스템 구현**
-
-- [ ] **푸시 알림**: 시간대별 리마인더 알림
-- [ ] **스마트 알림**: 사용자 패턴 기반 맞춤 알림
-- [ ] **일기 작성 알림**: 저녁 일기 작성 리마인더
-
-#### **기능 개선**
-
-- [ ] **오프라인 동기화**: 네트워크 연결 시 서버와 자동 동기화
-- [ ] **위젯 지원**: 홈 화면 위젯으로 빠른 체크 가능
-- [ ] **데이터 내보내기**: CSV, PDF 형태로 데이터 백업
-
-#### **UX/UI 개선**
-
-- [ ] **애니메이션 추가**: 체크박스, 페이지 전환 애니메이션
-- [ ] **접근성 개선**: 스크린 리더, 큰 폰트 지원
-- [ ] **온보딩**: 신규 사용자 가이드 튜토리얼
-- [ ] **빠른 액션**: 스와이프로 빠른 체크/수정
-
-### 📊 **중기 계획 (3-6개월)**
-
-#### **고급 통계 기능**
-
-- [ ] **주간/월간/연간 리포트**: 장기 트렌드 분석
-- [ ] **목표 설정 및 추적**: 카테고리별 목표 시간 설정
-- [ ] **비교 분석**: 이전 주/월과 성과 비교
-- [ ] **인사이트 제공**: AI 기반 개선 제안
-- [ ] **데이터 시각화 강화**: 차트, 그래프 다양화
-
-#### **고급 분석 기능**
-
-- [ ] **감정 분석**: 일기 내용 기반 감정 상태 분석
-- [ ] **패턴 분석**: 사용자 행동 패턴 분석 및 인사이트 제공
-- [ ] **목표 추적**: 장기 목표 설정 및 진행도 추적
-- [ ] **성과 예측**: AI 기반 생산성 예측 및 개선 제안
-
-#### **소셜 기능**
-
-- [ ] **팀/그룹 기능**: 가족, 팀원과 진행도 공유
-- [ ] **챌린지 시스템**: 30일 챌린지 등
-- [ ] **성과 공유**: SNS 공유 기능
-- [ ] **리더보드**: 친구들과 성과 경쟁
-
-#### **AI 통합**
-
-- [ ] **일정 자동 추천**: 과거 패턴 기반 템플릿 추천
-- [ ] **일기 분석**: 감정 분석, 키워드 추출
-- [ ] **생산성 코치**: 개인화된 조언 제공
-
-### 🏢 **장기 계획 (6개월 이상)**
-
-#### **플랫폼 확장**
-
-- [ ] **웹 버전**: 브라우저에서 사용 가능한 풀 기능 웹앱
-- [ ] **Apple Watch / WearOS**: 웨어러블 기기 지원
-- [ ] **데스크톱 앱**: Windows, macOS, Linux 네이티브 앱
-- [ ] **태블릿 최적화**: 큰 화면에 맞는 UI 개선
-
-#### **데이터 플랫폼**
-
-- [ ] **클라우드 백업**: 자동 백업 및 복원
-- [ ] **다기기 동기화**: 폰, 태블릿, 웹 간 실시간 동기화
-- [ ] **데이터 분석 API**: 외부 앱과 연동 가능한 API 제공
-- [ ] **건강 앱 연동**: Apple Health, Google Fit 연동
-
-#### **비즈니스 모델**
-
-- [ ] **프리미엄 구독 확장**: 고급 분석, 무제한 백업 등
-- [ ] **기업용 버전**: 팀 관리, 관리자 대시보드
-- [ ] **API 라이선스**: 다른 개발자를 위한 SDK 제공
-- [ ] **컨설팅 서비스**: 생산성 컨설팅 연계
-
-### 🔧 **기술적 개선사항**
-
-- [ ] **성능 최적화**: 메모리 사용량 줄이기, 로딩 속도 개선
-- [ ] **보안 강화**: 생체 인증, 데이터 암호화
-- [ ] **아키텍처 개선**: Clean Architecture 완전 적용
-- [ ] **테스트 커버리지**: 90% 이상 테스트 커버리지 달성
-- [ ] **CI/CD 구축**: 자동화된 빌드/배포 파이프라인
-
----
-
-## 📋 현재 개발 현황
-
-### ✅ **완료된 기능**
-
-#### **핵심 기능**
-
-- [x] **2단계 체크박스 시스템**: 계획과 실행을 분리한 혁신적 시스템
-- [x] **템플릿 관리**: 시간대별 템플릿 생성 및 관리
-- [x] **3줄 일기**: 오늘은 어땠나.., 아쉬운 일들!, 내일의 이정표! 기록
-- [x] **통계 시스템**: 실제 데이터 기반 정확한 통계 제공
-- [x] **카테고리 분류**: 6가지 활동 카테고리 시스템
-
-#### **사용자 경험**
-
-- [x] **다국어 지원**: 한국어/영어 완전 지원 (Easy Localization)
-- [x] **다크/라이트 테마**: 사용자 선호에 맞는 테마 설정
-- [x] **사용자 인증**: 이메일 기반 로그인/회원가입
-- [x] **프리미엄 구독**: 무제한 템플릿, 광고 제거 등
-- [x] **로컬 데이터베이스**: SQLite 기반 빠른 성능
-
-#### **앱 브랜딩**
-
-- [x] **앱 이름**: 'Time Template'으로 변경
-- [x] **앱 아이콘**: Time Template 이미지 기반 아이콘으로 변경
-- [x] **스플래시 화면**: Time Template 이미지 기반 스플래시 화면 (iOS/Android 완료)
-- [x] **앱 테마**: 민트 라일락 색상 테마 적용 (라이트/다크 모드)
-
-#### **기술 스택**
-
-- [x] **상태 관리**: Riverpod 완전 적용
-- [x] **라우팅**: GoRouter 적용
-- [x] **데이터베이스**: SQLite (Isar에서 마이그레이션 완료)
-- [x] **국제화**: Easy Localization 적용
-- [x] **코드 생성**: Freezed, json_serializable 적용
-
-### 🚧 **진행 중인 작업**
-
-#### **Android 스플래시 화면**
-
-- [ ] **Android 12+ 호환성**: 새로운 스플래시 화면 API 대응
-- [ ] **아이콘과 스플래시 분리**: 앱 아이콘과 스플래시 화면 완전 분리
-
-### 📅 **예정된 작업**
-
-#### **알림 시스템**
-
-- [ ] **푸시 알림**: 시간대별 리마인더 알림
-- [ ] **스마트 알림**: 사용자 패턴 기반 맞춤 알림
-- [ ] **일기 작성 알림**: 저녁 일기 작성 리마인더
-
-#### **고급 기능**
-
-- [ ] **위젯 지원**: 홈 화면 위젯
-- [ ] **데이터 내보내기**: CSV, PDF 백업
-
----
-
-## 🎯 투두리스트 (우선순위별)
-
-### 🔥 **High Priority (즉시 필요)**
-
-1. **Android 스플래시 화면 완전 분리**
-
-   - Android 12+ 스플래시 화면 API 완전 대응
-   - 앱 아이콘과 스플래시 화면 독립적 관리
-
-2. **푸시 알림 시스템**
-
-   - 시간대별 리마인더 알림
-   - 일기 작성 알림
-   - 스마트 알림 시스템
-
-3. **위젯 지원**
-   - 홈 화면 위젯
-   - 빠른 체크 기능
-
-### 🟡 **Medium Priority (1-2개월 내)**
-
-4. **고급 통계 기능**
-
-   - 주간/월간/연간 리포트
-   - 목표 설정 및 추적
-   - 비교 분석 기능
-
-5. **위젯 지원**
-
-   - 홈 화면 위젯
-   - 빠른 체크 기능
-
-6. **데이터 백업/복원**
-   - CSV 내보내기
-   - PDF 리포트 생성
-   - 클라우드 백업 (선택사항)
-
-### 🟢 **Low Priority (3-6개월 내)**
-
-7. **소셜 기능**
-
-   - 팀/그룹 기능
-   - 챌린지 시스템
-   - 성과 공유
-
-8. **AI 통합**
-
-   - 일정 자동 추천
-   - 일기 분석
-   - 개인화된 조언
-
-9. **플랫폼 확장**
-   - 웹 버전
-   - 웨어러블 지원
-   - 데스크톱 앱
-
----
-
-## 🎨 설계 방향
-
-### 🏗️ **아키텍처 설계**
-
-#### **Clean Architecture 적용**
+`main` 브랜치에 푸시되면 GitHub Actions가 자동으로 GitHub Pages에 배포합니다.
 
 ```
-Presentation Layer (UI)
-    ↓
-Domain Layer (Business Logic)
-    ↓
-Data Layer (Repository Pattern)
-    ↓
-External Data Sources (SQLite, API)
+dev (작업) ──[단계별 커밋]──> dev push ──> dev→main 머지 ──> main push ──> GH Pages 배포
 ```
 
-#### **상태 관리 패턴**
-
-- **Riverpod**: 전역 상태 관리
-- **StateNotifier**: 복잡한 상태 로직
-- **Provider**: 단순한 상태 공유
-- **Consumer**: UI 반응형 업데이트
-
-### 🎯 **UX/UI 설계 원칙**
-
-#### **사용자 중심 UX**
-
-- **직관적 인터페이스**: 사용자가 쉽게 이해하고 사용할 수 있는 UI
-- **개인화된 경험**: 사용자 패턴에 맞는 맞춤형 기능 제공
-- **일관된 디자인**: 전체 앱에서 통일된 디자인 언어 사용
-
-#### **직관적 인터페이스**
-
-- **2단계 체크박스**: 계획과 실행의 명확한 구분
-- **시각적 피드백**: 색상과 아이콘으로 상태 표시
-- **일관된 디자인**: Material Design 3 기반
-
-### 🔧 **기술 설계**
-
-#### **데이터베이스 설계**
-
-- **SQLite**: 로컬 데이터 저장
-- **JSON 직렬화**: 복잡한 객체 저장
-- **마이그레이션**: 스키마 변경 대응
-
-#### **국제화 설계**
-
-- **Easy Localization**: 다국어 지원
-- **동적 언어 변경**: 실시간 언어 전환
-- **번역 키 관리**: 체계적인 번역 관리
-
-#### **성능 최적화**
-
-- **지연 로딩**: 필요시에만 데이터 로드
-- **캐싱**: 자주 사용되는 데이터 캐싱
-- **메모리 관리**: 효율적인 메모리 사용
+워크플로: `.github/workflows/deploy.yml`
 
 ---
 
-## 🤝 기여하기
+## 🌿 브랜치 컨벤션
 
-### 📥 이슈 리포트
+- `dev` — 작업 브랜치 (커밋이 누적되는 곳)
+- `main` — 운영 브랜치 (GH Pages 배포 트리거)
 
-버그를 발견하거나 새로운 기능을 제안하고 싶다면:
-
-1. GitHub Issues에 등록
-2. 명확한 제목과 상세한 설명 작성
-3. 재현 단계 또는 사용 사례 포함
-
-### 🔀 Pull Request
-
-1. Fork 저장소 생성
-2. Feature 브랜치 생성: `git checkout -b feature/새기능명`
-3. 변경사항 커밋: `git commit -m "Add 새기능"`
-4. 브랜치 푸시: `git push origin feature/새기능명`
-5. Pull Request 생성
-
-### 📝 개발 가이드라인
-
-- **코드 스타일**: Flutter/Dart 공식 가이드라인 따르기
-- **커밋 메시지**: Conventional Commits 형식 사용
-- **테스트**: 새로운 기능은 테스트 코드 포함
-- **문서화**: 주요 변경사항은 README 업데이트
+대규모 변경은 `dev`에 **변경 단위별로 커밋을 분리**한 뒤, 일괄 `dev → main` 머지로 배포합니다.
 
 ---
 
 ## 📄 라이선스
 
-이 프로젝트는 비공개 라이선스 하에 배포됩니다. 상업적 사용을 금지합니다.
+[MIT License](LICENSE) — © 2024 CodeNYang (원작자 표기 유지)
 
 ---
 
-## 🙋‍♂️ 문의 및 지원
+## 🙋 문의
 
-- **이슈 및 버그 리포트**: [GitHub Issues](https://github.com/mincoln419/time_template/issues)
-- **기능 요청**: [GitHub Issues](https://github.com/mincoln419/time_template/issues)
-- **웹사이트**: https://codenyang.github.io/time-template
-
----
-
-## 📈 프로젝트 상태
-
-- ✅ **MVP 완성**: 핵심 기능 모두 구현 완료
-- ✅ **통계 시스템**: 실제 데이터 기반 정확한 통계 제공
-- ✅ **2단계 체크박스**: 계획과 실행을 분리한 혁신적 시스템
-- ✅ **다국어 지원**: 한국어/영어 완전 지원
-- ✅ **앱 브랜딩**: Time Template 브랜드 적용 완료
-- 🚧 **알림 시스템**: 푸시 알림 및 스마트 알림 구현 중
-- 📅 **고급 통계**: 장기 트렌드 분석 개발 예정
-- 📅 **웹 버전**: 계획 단계
-
----
-
-<div align="center">
-
-**⭐ 이 프로젝트가 도움이 되셨다면 스타를 눌러주세요! ⭐**
-
-_시간을 템플릿으로 관리하는, Time Template과 함께하세요!_
-
-⏰ **Time Template**: 체계적인 시간 관리로 완벽한 하루를 만들어보세요!
-
-</div>
+[GitHub Issues](https://github.com/mincoln419/time_template/issues)
