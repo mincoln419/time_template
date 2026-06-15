@@ -77,13 +77,16 @@
             <span class="tt-store-name">App Store</span>
           </span>
         </a>
-        <button class="tt-store-btn" aria-label="Google Play">
-          <i data-lucide="play"></i>
-          <span class="tt-store-btn-inner">
-            <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
-            <span class="tt-store-name">Google Play</span>
-          </span>
-        </button>
+        <div class="tt-store-wrap">
+          <button class="tt-store-btn tt-store-btn--coming" aria-label="Google Play" disabled>
+            <i data-lucide="play"></i>
+            <span class="tt-store-btn-inner">
+              <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
+              <span class="tt-store-name">Google Play</span>
+            </span>
+          </button>
+          <span class="tt-coming-soon" data-i18n="store.comingSoon">출시 예정</span>
+        </div>
       </div>
     </div>
     <div class="tt-hero-figure tt-reveal">
@@ -361,13 +364,16 @@
         <span class="tt-store-name">App Store</span>
       </span>
     </a>
-    <button class="tt-store-btn">
-      <i data-lucide="play"></i>
-      <span class="tt-store-btn-inner">
-        <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
-        <span class="tt-store-name">Google Play</span>
-      </span>
-    </button>
+    <div class="tt-store-wrap">
+      <button class="tt-store-btn tt-store-btn--coming" aria-label="Google Play" disabled>
+        <i data-lucide="play"></i>
+        <span class="tt-store-btn-inner">
+          <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
+          <span class="tt-store-name">Google Play</span>
+        </span>
+      </button>
+      <span class="tt-coming-soon" data-i18n="store.comingSoon">출시 예정</span>
+    </div>
   </div>
 </section>
 
@@ -433,8 +439,9 @@
     "cta.lead": { ko: "첫 템플릿을 만드는 데 5분이면 충분합니다.",
                   en: "Five minutes to build your first template." },
 
-    "store.appleSub":  { ko: "다운로드:", en: "Download on the" },
-    "store.googleSub": { ko: "다운로드:", en: "GET IT ON" },
+    "store.appleSub":   { ko: "다운로드:", en: "Download on the" },
+    "store.googleSub":  { ko: "다운로드:", en: "GET IT ON" },
+    "store.comingSoon": { ko: "출시 예정", en: "Coming Soon" },
 
     "footer.copy":    { ko: "© 2026 타임템플릿",  en: "© 2026 Time Template" },
     "footer.privacy": { ko: "개인정보",            en: "Privacy" },
