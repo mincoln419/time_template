@@ -1,348 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>이용약관 - Time Template</title>
-    <meta name="description" content="Time Template 이용약관" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이용약관 · 타임템플릿</title>
+<meta name="description" content="타임템플릿 서비스 이용약관">
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/icons/icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/icons/icon.png"
-    />
-    <link rel="apple-touch-icon" href="assets/icons/icon.png" />
-    <link rel="shortcut icon" href="assets/icons/icon.png" />
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="shortcut icon" href="assets/icon.png">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
 
-      body {
-        font-family: "Noto Sans KR", sans-serif;
-        line-height: 1.6;
-        color: #2d3a32;
-        background: linear-gradient(135deg, #9bb5a8 0%, #c8a8d8 100%);
-        min-height: 100vh;
-      }
+  .tt-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 250, 247, 0.86);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .tt-header-inner {
+    max-width: var(--container); margin: 0 auto;
+    padding: 14px var(--gutter);
+    display: flex; align-items: center; gap: 18px;
+  }
+  .tt-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; color: var(--ink-900); }
+  .tt-logo .mark {
+    width: 28px; height: 28px; border-radius: 8px; overflow: hidden;
+    box-shadow: var(--elev-1);
+  }
+  .tt-back {
+    margin-left: auto;
+    padding: 8px 16px; border-radius: var(--r-pill);
+    border: 1px solid var(--hairline-strong);
+    color: var(--ink-700); font-size: 13px; font-weight: 600;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .tt-back:hover { background: var(--ink-900); color: white; border-color: var(--ink-900); }
 
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+  main {
+    max-width: 800px; margin: 0 auto;
+    padding: 80px var(--gutter) 64px;
+  }
+  h1.page-title {
+    font-size: clamp(34px, 4.5vw, 48px); line-height: 1.1; letter-spacing: -0.02em;
+    font-weight: 700; color: var(--ink-900); margin: 0 0 12px;
+  }
+  .page-sub {
+    color: var(--ink-600); font-size: var(--fs-lg); line-height: var(--lh-lg); margin: 0 0 48px;
+  }
 
-      .header {
-        text-align: center;
-        padding: 40px 0;
-        color: white;
-      }
+  article h2 {
+    font-size: var(--fs-h3); line-height: var(--lh-h3);
+    color: var(--ink-900); font-weight: 700;
+    margin: 40px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  article p {
+    color: var(--ink-700); margin: 12px 0;
+    font-size: var(--fs-body); line-height: var(--lh-body);
+  }
+  article ul {
+    margin: 12px 0; padding-left: 20px;
+  }
+  article li {
+    color: var(--ink-700); margin: 6px 0;
+    font-size: var(--fs-body); line-height: var(--lh-body);
+  }
+  article a { color: var(--sage-700); text-decoration: underline; }
+  article strong { color: var(--ink-900); }
 
-      .header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
+  .effective-date {
+    margin-top: 48px; padding: 16px 20px;
+    background: var(--surface-2); border-radius: var(--r-md);
+    color: var(--ink-700); font-size: var(--fs-sm);
+  }
 
-      .header p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
+  .tt-footer {
+    padding: 48px var(--gutter);
+    border-top: 1px solid var(--hairline);
+  }
+  .tt-footer-inner {
+    max-width: var(--container); margin: 0 auto;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    font-size: 13px; color: var(--ink-600);
+  }
+  .tt-footer-inner .tt-spacer { flex: 1; }
+  .tt-footer-inner a:hover { color: var(--ink-900); }
 
-      .content {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        margin: 20px 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
+  @media (max-width: 540px) {
+    main { padding: 48px var(--gutter) 40px; }
+    .tt-logo span:not(.mark) { display: none; }
+  }
+</style>
+</head>
+<body>
 
-      .content h2 {
-        color: #9bb5a8;
-        font-size: 1.5rem;
-        margin: 30px 0 15px 0;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #e8f0ec;
-      }
+<header class="tt-header">
+  <div class="tt-header-inner">
+    <a href="index.html" class="tt-logo">
+      <span class="mark"><img src="assets/logo.jpg" alt=""></span>
+      <span>타임템플릿</span>
+    </a>
+    <a href="index.html" class="tt-back">← 메인으로</a>
+  </div>
+</header>
 
-      .content h3 {
-        color: #2d3a32;
-        font-size: 1.2rem;
-        margin: 20px 0 10px 0;
-      }
+<main>
+  <h1 class="page-title">이용약관</h1>
+  <p class="page-sub">타임템플릿 서비스 이용약관</p>
 
-      .content p {
-        margin-bottom: 15px;
-        color: #666;
-      }
+  <article>
+    <h2>제1조 (목적)</h2>
+    <p>이 약관은 타임템플릿(이하 "회사")이 제공하는 시간 관리 및 일기 서비스(이하 "서비스")의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
 
-      .content ul {
-        margin: 15px 0;
-        padding-left: 20px;
-      }
+    <h2>제2조 (정의)</h2>
+    <p>이 약관에서 사용하는 용어의 정의는 다음과 같습니다:</p>
+    <ul>
+      <li>"서비스"란 회사가 제공하는 시간 관리 및 일기 관련 모든 서비스를 의미합니다.</li>
+      <li>"이용자"란 서비스에 접속하여 이 약관에 따라 서비스를 이용하는 회원 및 비회원을 말합니다.</li>
+      <li>"회원"이란 서비스에 개인정보를 제공하여 회원등록을 한 자로서, 서비스의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
+    </ul>
 
-      .content li {
-        margin-bottom: 8px;
-        color: #666;
-      }
+    <h2>제3조 (약관의 효력 및 변경)</h2>
+    <p>1. 이 약관은 서비스를 이용하고자 하는 모든 이용자에게 그 효력이 발생합니다.</p>
+    <p>2. 회사는 필요하다고 인정되는 경우 이 약관을 변경할 수 있으며, 변경된 약관은 서비스 내 공지사항을 통해 공지합니다.</p>
+    <p>3. 이용자가 변경된 약관에 동의하지 않는 경우, 서비스 이용을 중단할 수 있습니다.</p>
 
-      .back-link {
-        display: inline-block;
-        margin-top: 30px;
-        padding: 12px 24px;
-        background: linear-gradient(135deg, #9bb5a8, #c8a8d8);
-        color: white;
-        text-decoration: none;
-        border-radius: 25px;
-        font-weight: 500;
-        transition: transform 0.3s ease;
-      }
+    <h2>제4조 (서비스의 제공)</h2>
+    <p>회사는 다음과 같은 서비스를 제공합니다:</p>
+    <ul>
+      <li>24시간 시간 관리 시스템</li>
+      <li>3줄 일기 작성 및 관리</li>
+      <li>템플릿 생성 및 관리</li>
+      <li>통계 및 분석 기능</li>
+      <li>기타 회사가 정하는 서비스</li>
+    </ul>
 
-      .back-link:hover {
-        transform: translateY(-2px);
-      }
+    <h2>제5조 (서비스의 중단)</h2>
+    <p>1. 회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</p>
+    <p>2. 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 이용자 또는 제3자가 입은 손해에 대하여 배상합니다. 단, 회사가 고의 또는 과실이 없음을 입증하는 경우에는 그러하지 아니합니다.</p>
 
-      .footer {
-        text-align: center;
-        padding: 20px 0;
-        color: white;
-        opacity: 0.8;
-      }
+    <h2>제6조 (회원가입)</h2>
+    <p>1. 이용자는 회사가 정한 가입 양식에 따라 회원정보를 기입한 후 이 약관에 동의한다는 의사표시를 함으로서 회원가입을 신청합니다.</p>
+    <p>2. 회사는 제1항과 같이 회원으로 가입할 것을 신청한 이용자 중 다음 각 호에 해당하지 않는 한 회원으로 등록합니다:</p>
+    <ul>
+      <li>가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는 경우</li>
+      <li>등록 내용에 허위, 기재누락, 오기가 있는 경우</li>
+      <li>기타 회원으로 등록하는 것이 회사의 기술상 현저히 지장이 있다고 판단되는 경우</li>
+    </ul>
 
-      @media (max-width: 768px) {
-        .container {
-          padding: 10px;
-        }
+    <h2>제7조 (회원 탈퇴 및 자격 상실 등)</h2>
+    <p>1. 회원은 회사에 언제든지 탈퇴를 요청할 수 있으며 회사는 즉시 회원탈퇴를 처리합니다.</p>
+    <p>2. 회원이 다음 각 호의 사유에 해당하는 경우, 회사는 회원자격을 제한 및 정지시킬 수 있습니다:</p>
+    <ul>
+      <li>가입 신청 시에 허위 내용을 등록한 경우</li>
+      <li>서비스를 이용하여 구매한 재화 등의 대금, 기타 서비스 이용에 관련하여 회원이 부담하는 채무를 기일에 지급하지 않는 경우</li>
+      <li>다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등 전자상거래 질서를 위협하는 경우</li>
+      <li>서비스를 이용하여 법령 또는 이 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우</li>
+    </ul>
 
-        .content {
-          padding: 20px;
-        }
+    <h2>제8조 (개인정보보호)</h2>
+    <p>1. 회사는 이용자의 개인정보 수집시 서비스제공을 위하여 필요한 범위에서 최소한의 개인정보를 수집합니다.</p>
+    <p>2. 회사는 회원가입시 구매계약이행에 필요한 정보를 미리 수집하지 않습니다.</p>
+    <p>3. 회사는 이용자의 개인정보를 수집·이용하는 때에는 당해 이용자에게 그 목적을 고지하고 동의를 받습니다.</p>
 
-        .header h1 {
-          font-size: 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <h1>이용약관</h1>
-        <p>Time Template 서비스 이용약관</p>
-      </header>
+    <h2>제9조 (회사의 의무)</h2>
+    <p>1. 회사는 법령과 이 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며 이 약관이 정하는 바에 따라 지속적이고, 안정적으로 서비스를 제공하는데 최선을 다하여야 합니다.</p>
+    <p>2. 회사는 이용자가 안전하게 인터넷 서비스를 이용할 수 있도록 이용자의 개인정보(신용정보 포함) 보호를 위한 보안 시스템을 구축하여야 합니다.</p>
 
-      <div class="content">
-        <h2>제1조 (목적)</h2>
-        <p>
-          이 약관은 Time Template(이하 "회사")이 제공하는 시간 관리 및 일기
-          서비스(이하 "서비스")의 이용과 관련하여 회사와 이용자 간의 권리, 의무
-          및 책임사항을 규정함을 목적으로 합니다.
-        </p>
+    <h2>제10조 (이용자의 의무)</h2>
+    <p>이용자는 다음 행위를 하여서는 안 됩니다:</p>
+    <ul>
+      <li>신청 또는 변경시 허위 내용의 등록</li>
+      <li>타인의 정보 도용</li>
+      <li>회사가 게시한 정보의 변경</li>
+      <li>회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
+      <li>회사 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
+      <li>회사 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
+      <li>외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 서비스에 공개 또는 게시하는 행위</li>
+    </ul>
 
-        <h2>제2조 (정의)</h2>
-        <p>이 약관에서 사용하는 용어의 정의는 다음과 같습니다:</p>
-        <ul>
-          <li>
-            "서비스"란 회사가 제공하는 시간 관리 및 일기 관련 모든 서비스를
-            의미합니다.
-          </li>
-          <li>
-            "이용자"란 서비스에 접속하여 이 약관에 따라 서비스를 이용하는 회원
-            및 비회원을 말합니다.
-          </li>
-          <li>
-            "회원"이란 서비스에 개인정보를 제공하여 회원등록을 한 자로서,
-            서비스의 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수
-            있는 자를 말합니다.
-          </li>
-        </ul>
+    <h2>제11조 (저작권의 귀속 및 이용제한)</h2>
+    <p>1. 회사가 작성한 저작물에 대한 저작권 기타 지적재산권은 회사에 귀속합니다.</p>
+    <p>2. 이용자는 서비스를 이용함으로써 얻은 정보 중 회사에게 지적재산권이 귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안됩니다.</p>
 
-        <h2>제3조 (약관의 효력 및 변경)</h2>
-        <p>
-          1. 이 약관은 서비스를 이용하고자 하는 모든 이용자에게 그 효력이
-          발생합니다.
-        </p>
-        <p>
-          2. 회사는 필요하다고 인정되는 경우 이 약관을 변경할 수 있으며, 변경된
-          약관은 서비스 내 공지사항을 통해 공지합니다.
-        </p>
-        <p>
-          3. 이용자가 변경된 약관에 동의하지 않는 경우, 서비스 이용을 중단할 수
-          있습니다.
-        </p>
+    <h2>제12조 (분쟁해결)</h2>
+    <p>1. 회사는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상처리기구를 설치·운영합니다.</p>
+    <p>2. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 민사소송법상의 관할법원에 제기합니다.</p>
 
-        <h2>제4조 (서비스의 제공)</h2>
-        <p>회사는 다음과 같은 서비스를 제공합니다:</p>
-        <ul>
-          <li>24시간 시간 관리 시스템</li>
-          <li>3줄 일기 작성 및 관리</li>
-          <li>템플릿 생성 및 관리</li>
-          <li>통계 및 분석 기능</li>
-          <li>기타 회사가 정하는 서비스</li>
-        </ul>
+    <h2>제13조 (재판권 및 준거법)</h2>
+    <p>1. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의 이용자의 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는 지방법원의 전속관할로 합니다. 다만, 제소 당시 이용자의 주소 또는 거소가 명확하지 아니한 경우의 경우에는 민사소송법상의 관할법원에 제기합니다.</p>
+    <p>2. 회사와 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.</p>
 
-        <h2>제5조 (서비스의 중단)</h2>
-        <p>
-          1. 회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절
-          등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수
-          있습니다.
-        </p>
-        <p>
-          2. 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여
-          이용자 또는 제3자가 입은 손해에 대하여 배상합니다. 단, 회사가 고의
-          또는 과실이 없음을 입증하는 경우에는 그러하지 아니합니다.
-        </p>
-
-        <h2>제6조 (회원가입)</h2>
-        <p>
-          1. 이용자는 회사가 정한 가입 양식에 따라 회원정보를 기입한 후 이
-          약관에 동의한다는 의사표시를 함으로서 회원가입을 신청합니다.
-        </p>
-        <p>
-          2. 회사는 제1항과 같이 회원으로 가입할 것을 신청한 이용자 중 다음 각
-          호에 해당하지 않는 한 회원으로 등록합니다:
-        </p>
-        <ul>
-          <li>
-            가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는
-            경우
-          </li>
-          <li>등록 내용에 허위, 기재누락, 오기가 있는 경우</li>
-          <li>
-            기타 회원으로 등록하는 것이 회사의 기술상 현저히 지장이 있다고
-            판단되는 경우
-          </li>
-        </ul>
-
-        <h2>제7조 (회원 탈퇴 및 자격 상실 등)</h2>
-        <p>
-          1. 회원은 회사에 언제든지 탈퇴를 요청할 수 있으며 회사는 즉시
-          회원탈퇴를 처리합니다.
-        </p>
-        <p>
-          2. 회원이 다음 각 호의 사유에 해당하는 경우, 회사는 회원자격을 제한 및
-          정지시킬 수 있습니다:
-        </p>
-        <ul>
-          <li>가입 신청 시에 허위 내용을 등록한 경우</li>
-          <li>
-            서비스를 이용하여 구매한 재화 등의 대금, 기타 서비스 이용에 관련하여
-            회원이 부담하는 채무를 기일에 지급하지 않는 경우
-          </li>
-          <li>
-            다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등
-            전자상거래 질서를 위협하는 경우
-          </li>
-          <li>
-            서비스를 이용하여 법령 또는 이 약관이 금지하거나 공서양속에 반하는
-            행위를 하는 경우
-          </li>
-        </ul>
-
-        <h2>제8조 (개인정보보호)</h2>
-        <p>
-          1. 회사는 이용자의 개인정보 수집시 서비스제공을 위하여 필요한 범위에서
-          최소한의 개인정보를 수집합니다.
-        </p>
-        <p>
-          2. 회사는 회원가입시 구매계약이행에 필요한 정보를 미리 수집하지
-          않습니다.
-        </p>
-        <p>
-          3. 회사는 이용자의 개인정보를 수집·이용하는 때에는 당해 이용자에게 그
-          목적을 고지하고 동의를 받습니다.
-        </p>
-
-        <h2>제9조 (회사의 의무)</h2>
-        <p>
-          1. 회사는 법령과 이 약관이 금지하거나 공서양속에 반하는 행위를 하지
-          않으며 이 약관이 정하는 바에 따라 지속적이고, 안정적으로 서비스를
-          제공하는데 최선을 다하여야 합니다.
-        </p>
-        <p>
-          2. 회사는 이용자가 안전하게 인터넷 서비스를 이용할 수 있도록 이용자의
-          개인정보(신용정보 포함) 보호를 위한 보안 시스템을 구축하여야 합니다.
-        </p>
-
-        <h2>제10조 (이용자의 의무)</h2>
-        <p>이용자는 다음 행위를 하여서는 안 됩니다:</p>
-        <ul>
-          <li>신청 또는 변경시 허위 내용의 등록</li>
-          <li>타인의 정보 도용</li>
-          <li>회사가 게시한 정보의 변경</li>
-          <li>
-            회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시
-          </li>
-          <li>회사 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
-          <li>회사 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
-          <li>
-            외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를
-            서비스에 공개 또는 게시하는 행위
-          </li>
-        </ul>
-
-        <h2>제11조 (저작권의 귀속 및 이용제한)</h2>
-        <p>
-          1. 회사가 작성한 저작물에 대한 저작권 기타 지적재산권은 회사에
-          귀속합니다.
-        </p>
-        <p>
-          2. 이용자는 서비스를 이용함으로써 얻은 정보 중 회사에게 지적재산권이
-          귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타
-          방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는
-          안됩니다.
-        </p>
-
-        <h2>제12조 (분쟁해결)</h2>
-        <p>
-          1. 회사는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를
-          보상처리하기 위하여 피해보상처리기구를 설치·운영합니다.
-        </p>
-        <p>
-          2. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은
-          민사소송법상의 관할법원에 제기합니다.
-        </p>
-
-        <h2>제13조 (재판권 및 준거법)</h2>
-        <p>
-          1. 회사와 이용자 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의
-          이용자의 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는
-          지방법원의 전속관할로 합니다. 다만, 제소 당시 이용자의 주소 또는
-          거소가 명확하지 아니한 경우의 경우에는 민사소송법상의 관할법원에
-          제기합니다.
-        </p>
-        <p>
-          2. 회사와 이용자 간에 제기된 전자상거래 소송에는 한국법을 적용합니다.
-        </p>
-
-        <p><strong>시행일: 2024년 1월 1일</strong></p>
-
-        <a href="index.html" class="back-link">← 메인으로 돌아가기</a>
-      </div>
-
-      <footer class="footer">
-        <p>&copy; 2024 Time Template. 모든 권리 보유. 비공개 라이선스.</p>
-      </footer>
+    <div class="effective-date">
+      <strong>시행일: 2026년 5월 17일</strong>
     </div>
-  </body>
+  </article>
+</main>
+
+<footer class="tt-footer">
+  <div class="tt-footer-inner">
+    <span>© 2026 타임템플릿</span>
+    <span class="tt-spacer"></span>
+    <a href="privacy.html">개인정보</a>
+    <a href="terms.html">이용약관</a>
+    <a href="https://github.com/mincoln419/time_template/issues" target="_blank" rel="noopener">문의</a>
+  </div>
+</footer>
+
+</body>
 </html>

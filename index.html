@@ -1,621 +1,586 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Time Template - 목표를 하루로 쪼개다</title>
-    <meta
-      name="description"
-      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱. 목표를 세우고, 실행하고, 회고하세요."
-    />
-    <meta
-      name="keywords"
-      content="Time Template, OKR, KPI, 목표관리, 성과, 자기계발, 회고, 시간관리, 생산성, 앱"
-    />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>타임템플릿 · Time Template — 하루를 디자인하다</title>
+<meta name="description" content="24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱. 계획 링과 실제 링이 겹치는 다이얼로 하루를 한눈에 봅니다.">
+<meta name="keywords" content="타임템플릿, Time Template, 시간관리, 24시간, 회고, 템플릿, 일기, 생산성, 앱">
+<meta name="author" content="Time Template">
 
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Time Template - 목표를 하루로 쪼개다"
-    />
-    <meta
-      property="og:description"
-      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱"
-    />
-    <meta
-      property="og:image"
-      content="https://codenyang.github.io/time-template/assets/images/og-image.png"
-    />
-    <meta
-      property="og:url"
-      content="https://codenyang.github.io/time-template"
-    />
-    <meta property="og:type" content="website" />
+<!-- Open Graph -->
+<meta property="og:title" content="타임템플릿 · Time Template — 하루를 디자인하다">
+<meta property="og:description" content="24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱">
+<meta property="og:image" content="https://mincoln419.github.io/time_template/assets/screens/ko/09-home-radial.jpg">
+<meta property="og:url" content="https://mincoln419.github.io/time_template/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Time Template - 목표를 하루로 쪼개다"
-    />
-    <meta
-      name="twitter:description"
-      content="OKR·KPI 목표를 24시간 템플릿으로 실행하고, 3줄 회고로 성장하는 개인 성과 코칭 앱"
-    />
-    <meta
-      name="twitter:image"
-      content="https://codenyang.github.io/time-template/assets/images/og-image.png"
-    />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="타임템플릿 · Time Template — 하루를 디자인하다">
+<meta name="twitter:description" content="24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱">
+<meta name="twitter:image" content="https://mincoln419.github.io/time_template/assets/screens/ko/09-home-radial.jpg">
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/icons/icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/icons/icon.png"
-    />
-    <link rel="apple-touch-icon" href="assets/icons/icon.png" />
-    <link rel="shortcut icon" href="assets/icons/icon.png" />
+<link rel="canonical" href="https://mincoln419.github.io/time_template/">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="shortcut icon" href="assets/icon.png">
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<!-- Fonts preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      body {
-        font-family: "Noto Sans KR", sans-serif;
-        line-height: 1.6;
-        color: #2d3a32;
-        background: linear-gradient(135deg, #9bb5a8 0%, #c8a8d8 100%);
-        min-height: 100vh;
-      }
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="landing.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
 
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
+<!-- ============== HEADER ============== -->
+<header class="tt-header" id="tt-header">
+  <div class="tt-header-inner">
+    <a href="#top" class="tt-logo">
+      <span class="mark"><img src="assets/logo.jpg" alt=""></span>
+      <span data-i18n="brand">타임템플릿</span>
+    </a>
+    <nav class="tt-nav">
+      <ul class="tt-nav-menu">
+        <li><a href="#features" data-i18n="nav.feature">기능</a></li>
+        <li><a href="https://github.com/mincoln419/time_template/issues" target="_blank" rel="noopener" data-i18n="nav.support">지원</a></li>
+      </ul>
+      <div class="tt-lang" role="tablist" aria-label="Language">
+        <button data-lang="ko" class="active">KO</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
 
-      /* Header */
-      .header {
-        text-align: center;
-        padding: 0;
-        color: white;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-bottom: 40px;
-      }
+<main id="top">
 
-      .main-image-container {
-        width: 100%;
-        height: 500px;
-        overflow: hidden;
-        position: relative;
-        border-radius: 20px 20px 0 0;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .main-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        object-position: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        background: white;
-      }
-
-      .main-image:hover {
-        transform: scale(1.02);
-      }
-
-      .header-content {
-        padding: 60px 0 40px;
-        background: linear-gradient(135deg, #9bb5a8, #c8a8d8);
-      }
-
-      .logo {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 30px;
-        background: white;
-        border-radius: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .logo img {
-        width: 80px;
-        height: 80px;
-        border-radius: 15px;
-      }
-
-      .app-title {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 15px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
-
-      .app-subtitle {
-        font-size: 1.2rem;
-        font-weight: 300;
-        opacity: 0.9;
-        margin-bottom: 10px;
-      }
-
-      .app-description {
-        font-size: 1rem;
-        opacity: 0.8;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      /* Main Content */
-      .main-content {
-        background: white;
-        border-radius: 30px 30px 0 0;
-        padding: 60px 0;
-        margin-top: 40px;
-      }
-
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-bottom: 60px;
-      }
-
-      .feature {
-        text-align: center;
-        padding: 30px 20px;
-        background: #f8fbf9;
-        border-radius: 20px;
-        border: 1px solid #b8d4c7;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .feature:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(155, 181, 168, 0.3);
-      }
-
-      .feature-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 20px;
-        background: linear-gradient(135deg, #9bb5a8, #c8a8d8);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: white;
-      }
-
-      .feature h3 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: #2d3a32;
-      }
-
-      .feature p {
-        color: #666;
-        line-height: 1.6;
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #2d3a32;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        font-size: 1.2rem;
-        color: #666;
-        margin-bottom: 50px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .diary-section {
-        background: linear-gradient(135deg, #f0f5f2, #e8f0ec);
-        border-radius: 20px;
-        padding: 40px;
-        margin: 40px 0;
-        border: 1px solid #b8d4c7;
-      }
-
-      .diary-item {
-        background: white;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 20px 0;
-        border-left: 5px solid #9bb5a8;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .diary-item h4 {
-        color: #9bb5a8;
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .diary-item p {
-        color: #666;
-        line-height: 1.6;
-      }
-
-      .cta-section {
-        text-align: center;
-        padding: 60px 0;
-        background: linear-gradient(135deg, #9bb5a8, #c8a8d8);
-        color: white;
-        margin: 40px 0;
-        border-radius: 20px;
-      }
-
-      .cta-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .cta-description {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-        opacity: 0.9;
-      }
-
-      .download-buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .download-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 15px 30px;
-        background: white;
-        color: #9bb5a8;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .download-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        color: #7a9b8a;
-      }
-
-      .footer {
-        text-align: center;
-        padding: 50px 0;
-        background: linear-gradient(135deg, #f8fbf9, #e8f0ec);
-        border-top: 2px solid #9bb5a8;
-        margin-top: 60px;
-        border-radius: 20px 20px 0 0;
-      }
-
-      .footer p {
-        margin-bottom: 15px;
-        color: #2d3a32;
-        font-weight: 500;
-      }
-
-      .footer a {
-        color: #9bb5a8;
-        text-decoration: none;
-        font-weight: 600;
-        padding: 8px 16px;
-        margin: 0 5px;
-        border-radius: 20px;
-        background: white;
-        box-shadow: 0 2px 8px rgba(155, 181, 168, 0.2);
-        transition: all 0.3s ease;
-        display: inline-block;
-      }
-
-      .footer a:hover {
-        background: #9bb5a8;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(155, 181, 168, 0.4);
-      }
-
-      /* Philosophy Section */
-      .philosophy-section {
-        background: #1a2e25;
-        border-radius: 20px;
-        padding: 60px 40px;
-        margin: 40px 0;
-        text-align: center;
-        color: white;
-      }
-
-      .philosophy-cycle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-      }
-
-      .philosophy-step {
-        font-size: 1.1rem;
-        font-weight: 600;
-        background: rgba(155, 181, 168, 0.2);
-        border: 1px solid rgba(155, 181, 168, 0.4);
-        border-radius: 30px;
-        padding: 10px 22px;
-        color: #b8d4c7;
-      }
-
-      .philosophy-arrow {
-        font-size: 1.2rem;
-        color: rgba(155, 181, 168, 0.5);
-      }
-
-      .philosophy-message {
-        font-size: 1.15rem;
-        color: rgba(255, 255, 255, 0.75);
-        line-height: 1.8;
-        max-width: 560px;
-        margin: 0 auto;
-      }
-
-      .philosophy-message strong {
-        color: white;
-        font-weight: 600;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .app-title {
-          font-size: 2rem;
-        }
-
-        .main-image-container {
-          height: 300px;
-        }
-
-        .header-content {
-          padding: 40px 20px;
-        }
-
-        .features {
-          grid-template-columns: 1fr;
-        }
-
-        .download-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .diary-section {
-          padding: 20px;
-        }
-
-        .philosophy-section {
-          padding: 40px 20px;
-        }
-
-        .philosophy-cycle {
-          gap: 8px;
-        }
-
-        .philosophy-step {
-          font-size: 0.95rem;
-          padding: 8px 16px;
-        }
-
-        .footer {
-          padding: 30px 0;
-        }
-
-        .footer a {
-          display: block;
-          margin: 8px auto;
-          max-width: 200px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Header -->
-      <header class="header">
-        <div class="main-image-container">
-          <img
-            src="assets/images/time_template_main.png"
-            alt="Time Template 메인 이미지"
-            class="main-image"
-          />
+<!-- ============== HERO ============== -->
+<section class="tt-hero">
+  <div class="tt-hero-grid" id="tt-hero-grid">
+    <div>
+      <div class="tt-eyebrow" data-i18n="hero.eyebrow">시간 관리, 다시 단순하게</div>
+      <h1 class="tt-h1" data-i18n="hero.h1">하루를<br>디자인하다.</h1>
+      <p class="tt-lead" data-i18n="hero.lead">계획 링과 실제 링이 겹치는 24시간 시계. 하루를 한눈에 봅니다.</p>
+      <div class="tt-hero-cta">
+        <a href="https://apps.apple.com/kr/app/time-template/id6751866977" target="_blank" rel="noopener" class="tt-store-btn" aria-label="App Store">
+          <i data-lucide="apple"></i>
+          <span class="tt-store-btn-inner">
+            <span class="tt-store-sub" data-i18n="store.appleSub">Download on the</span>
+            <span class="tt-store-name">App Store</span>
+          </span>
+        </a>
+        <div class="tt-store-wrap">
+          <button class="tt-store-btn tt-store-btn--coming" aria-label="Google Play" disabled>
+            <i data-lucide="play"></i>
+            <span class="tt-store-btn-inner">
+              <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
+              <span class="tt-store-name">Google Play</span>
+            </span>
+          </button>
+          <span class="tt-coming-soon" data-i18n="store.comingSoon">출시 예정</span>
         </div>
-        <div class="header-content">
-          <div class="logo">
-            <img src="assets/icons/icon.png" alt="Time Template 로고" />
-          </div>
-          <h1 class="app-title">Time Template</h1>
-          <p class="app-subtitle">목표를 하루로 쪼개다</p>
-          <p class="app-description">
-            OKR·KPI 목표를 24시간 템플릿으로 실행하고, 매일 회고로 성장하는 앱
-          </p>
-        </div>
-      </header>
-
-      <!-- Main Content -->
-      <main class="main-content">
-        <!-- Features Section -->
-        <section>
-          <h2 class="section-title">주요 기능</h2>
-          <p class="section-subtitle">
-            목표 실행부터 회고까지, 성과 사이클을 하루 단위로 완성하세요
-          </p>
-
-          <div class="features">
-            <div class="feature">
-              <div class="feature-icon">🎯</div>
-              <h3>OKR 실행 템플릿</h3>
-              <p>
-                큰 목표(OKR/KPI)를 오늘의 24시간으로 분해합니다.
-                목표가 일정이 되는 순간, 실행이 시작됩니다.
-              </p>
-            </div>
-
-            <div class="feature">
-              <div class="feature-icon">✅</div>
-              <h3>계획 vs 실행 체크</h3>
-              <p>
-                "계획했는가" vs "실제로 했는가"를 2단계로 구분 기록합니다.
-                실행률이 아닌 완료율 기준의 진짜 성과를 확인하세요.
-              </p>
-            </div>
-
-            <div class="feature">
-              <div class="feature-icon">📊</div>
-              <h3>성과 통계</h3>
-              <p>
-                계획 vs 실행 데이터로 나의 실제 우선순위를 직시합니다.
-                카테고리별 시간 분배로 숨겨진 패턴을 발견하세요.
-              </p>
-            </div>
-
-            <div class="feature">
-              <div class="feature-icon">🎨</div>
-              <h3>민트 라일락 테마</h3>
-              <p>
-                부드러운 민트 그린과 라일락 퍼플의 조화로운 색상으로 라이트/다크
-                모드 모두에서 편안한 사용자 경험을 제공합니다.
-              </p>
-            </div>
-
-            <div class="feature">
-              <div class="feature-icon">🌍</div>
-              <h3>다국어 지원</h3>
-              <p>
-                한국어와 영어를 완전 지원하며, 실시간 언어 전환이 가능합니다.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 철학 섹션 -->
-        <section class="philosophy-section">
-          <div class="philosophy-cycle">
-            <span class="philosophy-step">목표 설정</span>
-            <span class="philosophy-arrow">→</span>
-            <span class="philosophy-step">하루로 쪼개기</span>
-            <span class="philosophy-arrow">→</span>
-            <span class="philosophy-step">실행</span>
-            <span class="philosophy-arrow">→</span>
-            <span class="philosophy-step">회고</span>
-          </div>
-          <p class="philosophy-message">
-            <strong>성과는 의지가 아니라 시스템에서 나온다.</strong><br />
-            Time Template은 그 시스템입니다.
-          </p>
-        </section>
-
-        <!-- 3줄 회고 섹션 -->
-        <section class="diary-section">
-          <h2 class="section-title">3줄 회고 시스템</h2>
-          <p class="section-subtitle">
-            피드백 루프가 성장을 만든다. 하루 3분으로 1년이 달라집니다.
-          </p>
-
-          <div class="diary-item">
-            <h4>느낀점</h4>
-            <p>
-              오늘 가장 인상적이었던 경험이나 발견을 기록합니다.
-              작은 통찰이 쌓여 나만의 성장 데이터가 됩니다.
-            </p>
-          </div>
-
-          <div class="diary-item">
-            <h4>후회하는 점</h4>
-            <p>
-              더 잘할 수 있었던 것을 솔직하게 직시합니다.
-              회피하지 않고 기록하는 것, 그것이 개선의 시작입니다.
-            </p>
-          </div>
-
-          <div class="diary-item">
-            <h4>각오</h4>
-            <p>
-              내일 반드시 실행할 단 하나의 행동을 선언합니다.
-              구체적인 각오가 다음 날의 템플릿을 만듭니다.
-            </p>
-          </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-          <h2 class="cta-title">오늘부터 목표를 하루로 만드세요</h2>
-          <p class="cta-description">
-            목표를 세우고, 실행하고, 회고하세요. 성과는 시스템에서 나옵니다.
-          </p>
-          <div class="download-buttons">
-            <a href="#" class="download-btn">
-              <span>📱</span>
-              <span>iOS 다운로드</span>
-            </a>
-            <a href="#" class="download-btn">
-              <span>🤖</span>
-              <span>Android 다운로드</span>
-            </a>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <p>&copy; 2025 Time Template. 모든 권리 보유. 비공개 라이선스.</p>
-        <p>
-          <a
-            href="https://github.com/mincoln419/time_template/issues"
-            target="_blank"
-            >문의사항 및 이슈 등록</a
-          >
-          | <a href="privacy.html">개인정보처리방침</a> |
-          <a href="terms.html">이용약관</a>
-        </p>
-      </footer>
+      </div>
     </div>
-  </body>
+    <div class="tt-hero-figure tt-reveal">
+      <div class="tt-phone tt-phone--lg">
+        <span class="tt-phone-btn tt-phone-btn--silent"></span>
+        <span class="tt-phone-btn tt-phone-btn--volup"></span>
+        <span class="tt-phone-btn tt-phone-btn--voldown"></span>
+        <span class="tt-phone-btn tt-phone-btn--power"></span>
+        <div class="tt-phone-screen">
+          <img src="assets/screens/ko/09-home-radial.jpg" alt="Time Template home screen" data-img-key="09-home-radial">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DIAL SECTION ============== -->
+<section class="tt-dial-section" id="features">
+  <div class="tt-eyebrow" data-i18n="dial.eyebrow">두 개의 링</div>
+  <h2 class="tt-h2 tt-reveal" data-i18n="dial.h2">바깥은 계획, <em>안쪽은 실제.</em></h2>
+  <p class="tt-lead tt-reveal" data-i18n="dial.lead">계획과 실제 하루를 비교합니다. <br> 차이가 보이면, 내일의 템플릿을 다듬으세요.</p>
+
+  <div class="tt-dial-figure tt-reveal">
+    <svg class="tt-dial-wrap" viewBox="-110 -110 220 220" role="img" aria-label="24시간 다이얼: 바깥은 계획, 안쪽은 실제">
+      <!-- 안쪽 링 r=58 (실제) — 24개 1시간 arc, 매 시간이 개별 호 -->
+      <g class="tt-dial-ring tt-dial-ring--actual" transform="rotate(-90)" aria-hidden="true">
+        <circle r="58" stroke="#EFEFEB" stroke-width="18" fill="none"/>
+        <!-- 0-6: 잠 (7h) -->
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="0"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-15.18"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-30.37"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-45.55"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-60.73"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-75.92"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-91.10"/>
+        <!-- 7-8: 신체적 (2h) -->
+        <circle r="58" stroke="var(--cat-physical)"  stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-106.28"/>
+        <circle r="58" stroke="var(--cat-physical)"  stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-121.47"/>
+        <!-- 9-12: 지적 (4h) -->
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-136.65"/>
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-151.83"/>
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-167.02"/>
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-182.20"/>
+        <!-- 13-14: 사회적 (2h) -->
+        <circle r="58" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-197.38"/>
+        <circle r="58" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-212.57"/>
+        <!-- 15-17: 지적 (3h) -->
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-227.75"/>
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-242.93"/>
+        <circle r="58" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-258.12"/>
+        <!-- 18: 영적 (1h) -->
+        <circle r="58" stroke="var(--cat-spiritual)" stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-273.30"/>
+        <!-- 19-21: 사회적 (3h) -->
+        <circle r="58" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-288.48"/>
+        <circle r="58" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-303.67"/>
+        <circle r="58" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-318.85"/>
+        <!-- 22-23: 잠 (2h) -->
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-334.03"/>
+        <circle r="58" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="15.3 364.4" stroke-dashoffset="-349.22"/>
+      </g>
+      <!-- 바깥 링 r=79 (계획) — 24개 1시간 arc, 안쪽 링과 3px 간격 -->
+      <g class="tt-dial-ring tt-dial-ring--planned" transform="rotate(-90)" aria-hidden="true">
+        <circle r="79" stroke="#EFEFEB" stroke-width="18" fill="none"/>
+        <!-- 0-7: 잠 (8h) -->
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="0"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-20.68"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-41.37"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-62.05"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-82.73"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-103.42"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-124.10"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-144.78"/>
+        <!-- 8: 낭비 (1h) -->
+        <circle r="79" stroke="var(--cat-wasted)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-165.47"/>
+        <!-- 9-12: 지적 (4h) -->
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-186.15"/>
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-206.83"/>
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-227.52"/>
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-248.20"/>
+        <!-- 13-14: 사회적 (2h) -->
+        <circle r="79" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-268.88"/>
+        <circle r="79" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-289.57"/>
+        <!-- 15-17: 지적 (3h) -->
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-310.25"/>
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-330.93"/>
+        <circle r="79" stroke="var(--cat-mental)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-351.62"/>
+        <!-- 18: 신체적 (1h) -->
+        <circle r="79" stroke="var(--cat-physical)"  stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-372.30"/>
+        <!-- 19-21: 사회적 (3h) -->
+        <circle r="79" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-392.98"/>
+        <circle r="79" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-413.67"/>
+        <circle r="79" stroke="var(--cat-social)"    stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-434.35"/>
+        <!-- 22-23: 잠 (2h) -->
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-455.03"/>
+        <circle r="79" stroke="var(--cat-sleep)"     stroke-width="18" fill="none" stroke-dasharray="20.8 496.4" stroke-dashoffset="-475.72"/>
+      </g>
+      <!-- 1시간 간격 분리선 (24개 spoke, r=49 ~ r=88) -->
+      <g class="tt-dial-spokes" aria-hidden="true">
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(0)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(15)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(30)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(45)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(60)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(75)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(90)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(105)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(120)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(135)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(150)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(165)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(180)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(195)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(210)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(225)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(240)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(255)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(270)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(285)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(300)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(315)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(330)"/>
+        <line x1="0" y1="-49" x2="0" y2="-92" transform="rotate(345)"/>
+      </g>
+      <!-- 24개 시각 라벨 (r=102) -->
+      <g class="tt-dial-hours" aria-hidden="true">
+        <text x="0"     y="-102"  text-anchor="middle" dominant-baseline="middle">0</text>
+        <text x="26.4"  y="-98.5" text-anchor="middle" dominant-baseline="middle">1</text>
+        <text x="51"    y="-88.3" text-anchor="middle" dominant-baseline="middle">2</text>
+        <text x="72.1"  y="-72.1" text-anchor="middle" dominant-baseline="middle">3</text>
+        <text x="88.3"  y="-51"   text-anchor="middle" dominant-baseline="middle">4</text>
+        <text x="98.5"  y="-26.4" text-anchor="middle" dominant-baseline="middle">5</text>
+        <text x="102"   y="0"     text-anchor="middle" dominant-baseline="middle">6</text>
+        <text x="98.5"  y="26.4"  text-anchor="middle" dominant-baseline="middle">7</text>
+        <text x="88.3"  y="51"    text-anchor="middle" dominant-baseline="middle">8</text>
+        <text x="72.1"  y="72.1"  text-anchor="middle" dominant-baseline="middle">9</text>
+        <text x="51"    y="88.3"  text-anchor="middle" dominant-baseline="middle">10</text>
+        <text x="26.4"  y="98.5"  text-anchor="middle" dominant-baseline="middle">11</text>
+        <text x="0"     y="102"   text-anchor="middle" dominant-baseline="middle">12</text>
+        <text x="-26.4" y="98.5"  text-anchor="middle" dominant-baseline="middle">13</text>
+        <text x="-51"   y="88.3"  text-anchor="middle" dominant-baseline="middle">14</text>
+        <text x="-72.1" y="72.1"  text-anchor="middle" dominant-baseline="middle">15</text>
+        <text x="-88.3" y="51"    text-anchor="middle" dominant-baseline="middle">16</text>
+        <text x="-98.5" y="26.4"  text-anchor="middle" dominant-baseline="middle">17</text>
+        <text x="-102"  y="0"     text-anchor="middle" dominant-baseline="middle">18</text>
+        <text x="-98.5" y="-26.4" text-anchor="middle" dominant-baseline="middle">19</text>
+        <text x="-88.3" y="-51"   text-anchor="middle" dominant-baseline="middle">20</text>
+        <text x="-72.1" y="-72.1" text-anchor="middle" dominant-baseline="middle">21</text>
+        <text x="-51"   y="-88.3" text-anchor="middle" dominant-baseline="middle">22</text>
+        <text x="-26.4" y="-98.5" text-anchor="middle" dominant-baseline="middle">23</text>
+      </g>
+      <!-- 중앙 토글 (가로 알약형, 좌: 계획 / 우: 실제) -->
+      <g class="tt-dial-toggle" data-target="planned" role="button" tabindex="0" aria-pressed="false" aria-label="계획 보기">
+        <rect class="tt-dial-toggle-hit" x="-32" y="-10" width="28" height="20" rx="10"/>
+        <text class="tt-dial-toggle-text" x="-18" y="0" text-anchor="middle" dominant-baseline="middle" data-i18n="dial.inner">계획</text>
+      </g>
+      <g class="tt-dial-toggle" data-target="actual" role="button" tabindex="0" aria-pressed="false" aria-label="실제 보기">
+        <rect class="tt-dial-toggle-hit" x="4" y="-10" width="28" height="20" rx="10"/>
+        <text class="tt-dial-toggle-text" x="18" y="0" text-anchor="middle" dominant-baseline="middle" data-i18n="dial.outer">실제</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="tt-dial-legend">
+    <span style="--c:var(--cat-sleep)"     data-i18n="cat.sleep">잠</span>
+    <span style="--c:var(--cat-physical)"  data-i18n="cat.physical">신체적</span>
+    <span style="--c:var(--cat-mental)"    data-i18n="cat.mental">지적</span>
+    <span style="--c:var(--cat-social)"    data-i18n="cat.social">사회적</span>
+    <span style="--c:var(--cat-spiritual)" data-i18n="cat.spiritual">영적</span>
+    <span style="--c:var(--cat-wasted)"    data-i18n="cat.wasted">낭비</span>
+    <span style="--c:var(--cat-other)"     data-i18n="cat.other">기타</span>
+  </div>
+</section>
+
+<!-- ============== TEMPLATES ============== -->
+<section class="tt-section">
+  <div class="tt-split">
+    <div class="tt-split-text tt-reveal">
+      <div class="tt-eyebrow" data-i18n="tpl.eyebrow">템플릿</div>
+      <h2 class="tt-h2" data-i18n="tpl.h2">반복되는 하루는<br>한 번만 짭니다.</h2>
+      <p data-i18n="tpl.p">템플릿으로 하루를 관리하세요. <br> 매일 처음부터 시작하는 대신, 어제의 리듬에서 출발합니다.</p>
+    </div>
+    <div class="tt-split-figure tt-reveal">
+      <div class="tt-phone">
+        <span class="tt-phone-btn tt-phone-btn--silent"></span>
+        <span class="tt-phone-btn tt-phone-btn--volup"></span>
+        <span class="tt-phone-btn tt-phone-btn--voldown"></span>
+        <span class="tt-phone-btn tt-phone-btn--power"></span>
+        <div class="tt-phone-screen">
+          <img src="assets/screens/ko/03-templates-list.jpg" alt="" data-img-key="03-templates-list">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== JOURNAL ============== -->
+<section class="tt-section" style="background:var(--surface)">
+  <div class="tt-split tt-split--reverse">
+    <div class="tt-split-text tt-reveal">
+      <div class="tt-eyebrow" data-i18n="journal.eyebrow">일기</div>
+      <h2 class="tt-h2" data-i18n="journal.h2">아침에 한 줄,<br>저녁에 한 줄.</h2>
+      <p data-i18n="journal.p">아침에는 오늘의 의도를. 저녁에는 한 줄의 회고를. <br>길게 쓰지 않아도 됩니다. 한 줄이면 충분합니다.</p>
+    </div>
+    <div class="tt-split-figure tt-reveal">
+      <div class="tt-two-phones">
+        <!-- 아침: 오늘 목표 (이미지 위 타이프라이터 2개, 입력 필드 위에 텍스트 타이핑) -->
+        <div class="tt-phone tt-phone--sm">
+          <span class="tt-phone-btn tt-phone-btn--silent"></span>
+          <span class="tt-phone-btn tt-phone-btn--volup"></span>
+          <span class="tt-phone-btn tt-phone-btn--voldown"></span>
+          <span class="tt-phone-btn tt-phone-btn--power"></span>
+          <div class="tt-phone-screen">
+            <img src="assets/screens/ko/06-journal-morning.jpg" alt="" data-img-key="06-journal-morning">
+            <span class="tt-tw tt-tw--mo1" data-tw-text="새 기능 4시간 완성하기" data-tw-text-en="Ship new feature in 4h"></span>
+            <span class="tt-tw tt-tw--mo2" data-tw-text="API 설계 마무리" data-tw-text-en="Finalize API design" data-tw-delay="2"></span>
+          </div>
+        </div>
+        <!-- 저녁: 회고 (이미지 위 타이프라이터 2개) -->
+        <div class="tt-phone tt-phone--sm">
+          <span class="tt-phone-btn tt-phone-btn--silent"></span>
+          <span class="tt-phone-btn tt-phone-btn--volup"></span>
+          <span class="tt-phone-btn tt-phone-btn--voldown"></span>
+          <span class="tt-phone-btn tt-phone-btn--power"></span>
+          <div class="tt-phone-screen">
+            <img src="assets/screens/ko/07-journal-evening.jpg" alt="" data-img-key="07-journal-evening">
+            <span class="tt-tw tt-tw--ev1" data-tw-text="좋은 회의에서 좋은 아이디어를 얻었다." data-tw-text-en="Great meeting sparked a great idea."></span>
+            <span class="tt-tw tt-tw--ev2" data-tw-text="새 기능 출시에 도움이 됐다." data-tw-text-en="Helped ship the new feature." data-tw-delay="2.5"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="tt-section">
+  <div class="tt-split">
+    <div class="tt-split-figure tt-reveal">
+      <div class="tt-stats">
+        <div class="tt-stat" style="--c:var(--cat-sleep)">
+          <div class="tt-stat-row"><span class="tt-stat-dot"></span><span class="tt-stat-cat" data-i18n="cat.sleep">잠</span></div>
+          <div class="tt-stat-num">13<small>h</small></div>
+        </div>
+        <div class="tt-stat" style="--c:var(--cat-physical)">
+          <div class="tt-stat-row"><span class="tt-stat-dot"></span><span class="tt-stat-cat" data-i18n="cat.physical">신체적</span></div>
+          <div class="tt-stat-num">4<small>h</small></div>
+        </div>
+        <div class="tt-stat" style="--c:var(--cat-mental)">
+          <div class="tt-stat-row"><span class="tt-stat-dot"></span><span class="tt-stat-cat" data-i18n="cat.mental">지적</span></div>
+          <div class="tt-stat-num">4<small>h</small></div>
+        </div>
+        <div class="tt-stat" style="--c:var(--cat-social)">
+          <div class="tt-stat-row"><span class="tt-stat-dot"></span><span class="tt-stat-cat" data-i18n="cat.social">사회적</span></div>
+          <div class="tt-stat-num">2<small>h</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="tt-split-text tt-reveal">
+      <div class="tt-eyebrow" data-i18n="stats.eyebrow">통계</div>
+      <h2 class="tt-h2" data-i18n="stats.h2">어디에 시간을 썼나,<br>한눈에.</h2>
+      <p data-i18n="stats.p">잠 · 신체적 · 지적 · 사회적 · 영적 · 낭비 · 기타. 일곱 칸이 한 주를 설명합니다. 더 늘리지 않습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA ============== -->
+<section class="tt-cta-section">
+  <h2 class="tt-h2 tt-reveal" data-i18n="cta.h2">오늘부터 시작하세요.</h2>
+  <p class="tt-lead tt-reveal" data-i18n="cta.lead">첫 템플릿을 만드는 데 5분이면 충분합니다.</p>
+  <div class="tt-cta-buttons tt-reveal">
+    <a href="https://apps.apple.com/kr/app/time-template/id6751866977" target="_blank" rel="noopener" class="tt-store-btn" aria-label="App Store">
+      <i data-lucide="apple"></i>
+      <span class="tt-store-btn-inner">
+        <span class="tt-store-sub" data-i18n="store.appleSub">Download on the</span>
+        <span class="tt-store-name">App Store</span>
+      </span>
+    </a>
+    <div class="tt-store-wrap">
+      <button class="tt-store-btn tt-store-btn--coming" aria-label="Google Play" disabled>
+        <i data-lucide="play"></i>
+        <span class="tt-store-btn-inner">
+          <span class="tt-store-sub" data-i18n="store.googleSub">GET IT ON</span>
+          <span class="tt-store-name">Google Play</span>
+        </span>
+      </button>
+      <span class="tt-coming-soon" data-i18n="store.comingSoon">출시 예정</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="tt-footer">
+  <div class="tt-footer-inner">
+    <span data-i18n="footer.copy">© 2026 타임템플릿</span>
+    <span class="tt-spacer"></span>
+    <a href="privacy.html" data-i18n="footer.privacy">개인정보</a>
+    <a href="terms.html" data-i18n="footer.terms">이용약관</a>
+    <a href="https://github.com/mincoln419/time_template/issues" target="_blank" rel="noopener" data-i18n="footer.issues">문의</a>
+  </div>
+</footer>
+
+</main>
+
+<!-- ============== i18n + behavior ============== -->
+<script>
+  const dict = {
+    "brand":        { ko: "타임템플릿", en: "Time Template" },
+    "nav.feature":  { ko: "기능",       en: "Feature" },
+    "nav.support":  { ko: "지원",       en: "Support" },
+
+    "hero.eyebrow": { ko: "시간 관리, 다시 단순하게", en: "A simpler way to spend a day" },
+    "hero.h1":     { ko: "하루를<br>디자인하다.", en: "Design<br>your day." },
+    "hero.lead":   { ko: "계획 링과 실제 링이 겹치는 24시간 시계. 하루를 한눈에 봅니다.",
+                     en: "A 24-hour dial with two rings — what you planned, and what really happened. The whole day, on one screen." },
+
+    "dial.eyebrow": { ko: "두 개의 링", en: "Two rings" },
+    "dial.h2":      { ko: "바깥은 계획, <em>안쪽은 실제.</em>", en: "Plan outside. <em>Actual inside.</em>" },
+    "dial.lead":    { ko: "계획과 실제 하루를 비교합니다.<br>차이가 보이면, 내일의 템플릿을 다듬으세요.",
+                      en: "Compare planned vs actual.<br>Where they diverge, refine tomorrow's template." },
+    "dial.inner":   { ko: "계획", en: "PLAN" },
+    "dial.outer":   { ko: "실제", en: "ACTUAL" },
+
+    "tpl.eyebrow": { ko: "템플릿", en: "Templates" },
+    "tpl.h2":      { ko: "반복되는 하루는<br>한 번만 짭니다.", en: "Repeating days,<br>made once." },
+    "tpl.p":       { ko: "템플릿으로 하루를 관리하세요.<br>매일 처음부터 시작하는 대신, 어제의 리듬에서 출발합니다.",
+                     en: "Manage your day with templates.<br>Start each morning from yesterday's rhythm, not from a blank slate." },
+
+    "journal.eyebrow": { ko: "일기", en: "Journal" },
+    "journal.h2":      { ko: "아침에 한 줄,<br>저녁에 한 줄.", en: "A line in the morning.<br>A line at night." },
+    "journal.p":       { ko: "아침에는 오늘의 의도를. 저녁에는 한 줄의 회고를.<br>길게 쓰지 않아도 됩니다. 한 줄이면 충분합니다.",
+                         en: "An intention before you start. A reflection before you close.<br>One sentence is enough — that's the point." },
+
+    "stats.eyebrow": { ko: "통계", en: "Stats" },
+    "stats.h2":      { ko: "어디에 시간을 썼나,<br>한눈에.", en: "Where the hours went,<br>at a glance." },
+    "stats.p":       { ko: "잠 · 신체적 · 지적 · 사회적 · 영적 · 낭비 · 기타. 일곱 칸이 한 주를 설명합니다. 더 늘리지 않습니다.",
+                       en: "Sleep · Physical · Mental · Social · Spiritual · Wasted · Other. Seven buckets describe a week. We don't add more." },
+
+    "cat.sleep":     { ko: "잠",    en: "Sleep" },
+    "cat.physical":  { ko: "신체적", en: "Physical" },
+    "cat.mental":    { ko: "지적",   en: "Mental" },
+    "cat.social":    { ko: "사회적", en: "Social" },
+    "cat.spiritual": { ko: "영적",   en: "Spiritual" },
+    "cat.wasted":    { ko: "낭비",   en: "Wasted" },
+    "cat.other":     { ko: "기타",   en: "Other" },
+
+    "all.quote.prefix": { ko: "학생, 직장인, 시니어까지.", en: "Students. Workers. Anyone keeping a day." },
+    "all.quote.body":   { ko: "하루는 모두 24시간입니다.", en: "Twenty-four hours, for everyone." },
+
+    "cta.h2":   { ko: "오늘부터 시작하세요.", en: "Start with today." },
+    "cta.lead": { ko: "첫 템플릿을 만드는 데 5분이면 충분합니다.",
+                  en: "Five minutes to build your first template." },
+
+    "store.appleSub":   { ko: "다운로드:", en: "Download on the" },
+    "store.googleSub":  { ko: "다운로드:", en: "GET IT ON" },
+    "store.comingSoon": { ko: "출시 예정", en: "Coming Soon" },
+
+    "footer.copy":    { ko: "© 2026 타임템플릿",  en: "© 2026 Time Template" },
+    "footer.privacy": { ko: "개인정보",            en: "Privacy" },
+    "footer.terms":   { ko: "이용약관",            en: "Terms" },
+    "footer.issues":  { ko: "문의",                en: "Contact" }
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key] && dict[key][lang] != null) el.innerHTML = dict[key][lang];
+    });
+    // 언어별 스크린샷 이미지 스왑 (en 파일 누락 시 onerror로 ko fallback)
+    document.querySelectorAll("[data-img-key]").forEach(img => {
+      const key = img.dataset.imgKey;
+      img.dataset.imgFallback = "";
+      img.onerror = function() {
+        if (this.dataset.imgFallback !== "ko" && lang !== "ko") {
+          this.dataset.imgFallback = "ko";
+          this.src = `assets/screens/ko/${key}.jpg`;
+        }
+      };
+      img.src = `assets/screens/${lang}/${key}.jpg`;
+    });
+    document.querySelectorAll(".tt-lang button").forEach(b => {
+      b.classList.toggle("active", b.dataset.lang === lang);
+    });
+    try { localStorage.setItem("tt.lang", lang); } catch(e){}
+  }
+
+  document.querySelectorAll(".tt-lang button").forEach(b => {
+    b.addEventListener("click", () => setLang(b.dataset.lang));
+  });
+  setLang((function(){ try { return localStorage.getItem("tt.lang") } catch(e){ return null } }()) || "ko");
+
+  // Header shadow on scroll
+  const header = document.getElementById("tt-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }});
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".tt-reveal").forEach(el => io.observe(el));
+
+  // Initial reveal for above-fold
+  setTimeout(() => document.querySelectorAll(".tt-hero .tt-reveal").forEach(el => el.classList.add("in")), 80);
+
+  // Journal 이미지 위 타이프라이터 — 화면에 들어올 때 시작, 무한 루프, 언어 따라 자동 스왑
+  const journalTws = document.querySelectorAll(".tt-tw");
+  if (journalTws.length > 0) {
+    const TYPE_MS = 90, DEL_MS = 35, HOLD_TYPED = 2800, HOLD_EMPTY = 600;
+    const getTwText = (el) => {
+      const lang = document.documentElement.lang || "ko";
+      return (lang === "en" && el.dataset.twTextEn) || el.dataset.twText || "";
+    };
+    const typeLoop = (el, i = 0, deleting = false) => {
+      const text = getTwText(el);
+      const safeI = Math.min(i, text.length);
+      if (!deleting && safeI <= text.length) {
+        el.textContent = text.slice(0, safeI);
+        if (safeI === text.length) {
+          setTimeout(() => typeLoop(el, text.length, true), HOLD_TYPED);
+        } else {
+          setTimeout(() => typeLoop(el, safeI + 1, false), TYPE_MS);
+        }
+      } else if (deleting && safeI > 0) {
+        el.textContent = text.slice(0, safeI - 1);
+        setTimeout(() => typeLoop(el, safeI - 1, true), DEL_MS);
+      } else {
+        el.textContent = "";
+        setTimeout(() => typeLoop(el, 0, false), HOLD_EMPTY);
+      }
+    };
+    const startTw = (el) => {
+      if (el.dataset.twStarted) return;
+      el.dataset.twStarted = "1";
+      const delay = parseFloat(el.dataset.twDelay || 0) * 1000;
+      setTimeout(() => typeLoop(el), delay);
+    };
+    const twObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { startTw(e.target); twObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    journalTws.forEach(t => twObs.observe(t));
+  }
+
+  // Dial press-and-hold: 버튼을 누르고 있는 동안만 해당 링을 진하게 + 확대해서 강조
+  const dialSection = document.querySelector(".tt-dial-section");
+  if (dialSection) {
+    const dialToggles = dialSection.querySelectorAll(".tt-dial-toggle");
+    function setDialFocus(target) {
+      if (target) {
+        dialSection.setAttribute("data-focus", target);
+      } else {
+        dialSection.removeAttribute("data-focus");
+      }
+      dialToggles.forEach(t =>
+        t.setAttribute("aria-pressed", t.dataset.target === target ? "true" : "false")
+      );
+    }
+    dialToggles.forEach(t => {
+      // 마우스/터치/펜: 누르고 있는 동안만 강조
+      t.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        setDialFocus(t.dataset.target);
+        try { t.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+      const release = () => setDialFocus(null);
+      t.addEventListener("pointerup", release);
+      t.addEventListener("pointercancel", release);
+      t.addEventListener("pointerleave", (e) => {
+        // 포인터 캡처 중이면 leave가 안 오지만, 안전망으로 처리
+        if (typeof t.hasPointerCapture !== "function" || !t.hasPointerCapture(e.pointerId)) {
+          release();
+        }
+      });
+      // 키보드 접근성: Enter/Space를 누르고 있는 동안 강조
+      t.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (!e.repeat) setDialFocus(t.dataset.target);
+        }
+      });
+      t.addEventListener("keyup", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setDialFocus(null);
+        }
+      });
+    });
+  }
+
+  lucide.createIcons();
+</script>
+
+</body>
 </html>

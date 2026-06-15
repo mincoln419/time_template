@@ -1,0 +1,392 @@
+/* Landing page styles — sits on top of ../../colors_and_type.css */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--font-sans); }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== Header ===== */
+.tt-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250, 250, 247, 0.86);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, background .2s;
+}
+.tt-header.scrolled { border-bottom-color: var(--hairline); }
+.tt-header-inner {
+  max-width: var(--container); margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex; align-items: center; gap: 18px;
+}
+.tt-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+.tt-logo .mark {
+  width: 28px; height: 28px; border-radius: 8px; overflow: hidden;
+  box-shadow: var(--elev-1);
+}
+.tt-logo .mark img { width: 100%; height: 100%; }
+.tt-nav { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.tt-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tt-nav-menu a {
+  color: var(--ink-700);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: color .15s;
+}
+.tt-nav-menu a:hover { color: var(--ink-900); }
+.tt-lang {
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid var(--hairline-strong); border-radius: 9999px; padding: 3px;
+  font-size: 12px; font-weight: 600;
+}
+.tt-lang button {
+  background: transparent; border: 0; padding: 5px 12px; border-radius: 9999px;
+  cursor: pointer; color: var(--ink-600); font-family: inherit; font-weight: 600; font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.tt-lang button.active { background: var(--ink-900); color: white; }
+.tt-cta {
+  background: var(--sage-700); color: white; border: 0;
+  padding: 10px 18px; border-radius: 9999px; font-family: inherit;
+  font-weight: 600; font-size: 14px; cursor: pointer;
+  transition: opacity .15s, transform .15s;
+}
+.tt-cta:hover { opacity: .9; }
+.tt-cta:active { transform: scale(.98); }
+
+/* ===== Generic sections ===== */
+.tt-container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.tt-section { padding: 96px var(--gutter); }
+.tt-section--tight { padding: 64px var(--gutter); }
+.tt-eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sage-700); margin: 0 0 18px;
+}
+.tt-h1 { font-size: clamp(48px, 7.5vw, 88px); line-height: 1.04; letter-spacing: -0.025em; font-weight: 700; margin: 0; color: var(--ink-900); }
+.tt-h2 { font-size: clamp(34px, 4.5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; margin: 0; color: var(--ink-900); }
+.tt-h2.ink-accent { color: var(--ink-900); }
+.tt-h2 em { font-style: normal; color: var(--sage-700); }
+.tt-lead { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--ink-600); margin: 20px 0 0; max-width: 540px; }
+.tt-mute { color: var(--ink-600); }
+
+/* ===== Hero ===== */
+.tt-hero { padding: 80px var(--gutter) 64px; }
+.tt-hero-grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.tt-hero-grid.centered { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+.tt-hero-grid.centered .tt-lead { margin-left: auto; margin-right: auto; }
+.tt-hero-cta { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+.tt-hero-grid.centered .tt-hero-cta { justify-content: center; }
+.tt-hero-figure { display: flex; justify-content: center; }
+
+/* ===== Phone frame — iPhone 스타일 (3단 메탈 + 검은 내부 프레임) =====
+   --phone-w로 모든 사이즈가 비례 스케일된다. */
+.tt-phone {
+  --phone-w: 280px;
+  position: relative;
+  box-sizing: border-box;
+  width: var(--phone-w);
+  aspect-ratio: 33 / 68;
+  /* 메탈 바디: 위 밝은 회색 → 중앙 검정 → 하단 어두운 회색 */
+  background: linear-gradient(180deg, #737373 0%, #000 50%, #404040 100%);
+  border-radius: calc(var(--phone-w) * 0.176);
+  padding: calc(var(--phone-w) * 0.009);
+  box-shadow: 0 35px 90px rgba(0,0,0,0.35);
+}
+.tt-phone-screen {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  /* 내부 검은 베젤 프레임 (body 안쪽) */
+  border: calc(var(--phone-w) * 0.027) solid #000;
+  border-radius: calc(var(--phone-w) * 0.167);
+  overflow: hidden;
+  background: var(--surface);
+}
+.tt-phone-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+/* Dynamic Island — 큰 검은 알약 + 상단 인너 하이라이트 */
+.tt-phone-screen::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--phone-w) * 0.054);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--phone-w) * 0.315);
+  height: calc(var(--phone-w) * 0.097);
+  background: #000;
+  border-radius: 9999px;
+  z-index: 10;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+}
+/* 카메라 렌즈 — Dynamic Island 오른쪽 안쪽, 푸른 코팅 반사 */
+.tt-phone-screen::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--phone-w) * 0.083);
+  left: calc(50% + var(--phone-w) * 0.073);
+  width: calc(var(--phone-w) * 0.039);
+  height: calc(var(--phone-w) * 0.039);
+  background: radial-gradient(circle at 30% 30%, #263b82 25%, #101827 55%, #050514 100%);
+  border-radius: 50%;
+  z-index: 11;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.7);
+}
+/* Home indicator — 하단 알약 */
+.tt-phone::before {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--phone-w) * 0.025);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--phone-w) * 0.352);
+  height: calc(var(--phone-w) * 0.012);
+  background: rgba(0,0,0,0.9);
+  border-radius: 9999px;
+  z-index: 20;
+}
+/* 측면 버튼 (음소거 스위치 / 볼륨 ↑↓ / 전원) — 폰 바깥으로 살짝 돌출 */
+.tt-phone-btn {
+  position: absolute;
+  width: calc(var(--phone-w) * 0.015);
+  background: #404040;
+}
+.tt-phone-btn--silent,
+.tt-phone-btn--volup,
+.tt-phone-btn--voldown {
+  left: calc(var(--phone-w) * -0.015);
+  border-radius: calc(var(--phone-w) * 0.018) 0 0 calc(var(--phone-w) * 0.018);
+}
+.tt-phone-btn--power {
+  right: calc(var(--phone-w) * -0.015);
+  border-radius: 0 calc(var(--phone-w) * 0.018) calc(var(--phone-w) * 0.018) 0;
+}
+.tt-phone-btn--silent  { top: calc(var(--phone-w) * 0.382); height: calc(var(--phone-w) * 0.133); }
+.tt-phone-btn--volup   { top: calc(var(--phone-w) * 0.576); height: calc(var(--phone-w) * 0.212); }
+.tt-phone-btn--voldown { top: calc(var(--phone-w) * 0.830); height: calc(var(--phone-w) * 0.212); }
+.tt-phone-btn--power   { top: calc(var(--phone-w) * 0.636); height: calc(var(--phone-w) * 0.291); }
+.tt-phone--lg { --phone-w: 340px; }
+.tt-phone--sm { --phone-w: 240px; }
+
+/* Journal 이미지 위 타이프라이터 오버레이 — 입력 필드 위치에 absolute로 표시 */
+.tt-tw {
+  position: absolute;
+  left: calc(10% + 4px);
+  right: 10%;
+  z-index: 5;
+  pointer-events: none;
+  font-family: var(--font-sans);
+  font-size: calc(var(--phone-w) * 0.04);
+  line-height: 1.35;
+  color: #2d3a32;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+.tt-tw::after {
+  content: "|";
+  color: #a8bfa6;
+  margin-left: 0.1em;
+  font-weight: 300;
+  animation: tt-cursor 0.8s step-end infinite;
+}
+@keyframes tt-cursor { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .tt-tw::after { animation: none; }
+}
+/* 4개 입력 필드 위치 (이미지 비율 % + px 미세조정) */
+.tt-tw--mo1 { top: calc(47% + 2px); }     /* 아침: 오늘의 목표 (+2px ↓) */
+.tt-tw--mo2 { top: calc(59.5% - 1px); }   /* 아침: 가장 중요한 것 1가지 (-1px ↑) */
+.tt-tw--ev1 { top: 40%; }                 /* 저녁: 오늘의 한 줄 */
+.tt-tw--ev2 { top: calc(60.5% - 2px); }   /* 저녁: 잘 한 것 1가지 (-2px ↑) */
+
+/* ===== Device buttons ===== */
+.tt-store-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--ink-900); color: white;
+  padding: 14px 22px; border-radius: 14px;
+  font-weight: 600; font-size: 15px; line-height: 1;
+  border: 0; cursor: pointer; font-family: inherit;
+  transition: opacity .15s, transform .15s;
+}
+.tt-store-btn:hover { opacity: .9; }
+.tt-store-btn:active { transform: scale(.98); }
+.tt-store-btn .tt-store-sub { font-size: 11px; font-weight: 500; opacity: .7; display: block; letter-spacing: 0.04em; }
+.tt-store-btn .tt-store-name { font-size: 16px; font-weight: 700; display: block; letter-spacing: -0.01em; }
+.tt-store-btn-inner { display: flex; flex-direction: column; align-items: flex-start; }
+.tt-store-btn svg { width: 22px; height: 22px; }
+
+/* Coming soon wrap + badge */
+.tt-store-wrap { position: relative; display: inline-flex; }
+.tt-store-btn--coming { opacity: 0.5; cursor: default; pointer-events: none; }
+.tt-coming-soon {
+  position: absolute;
+  top: -9px; right: -9px;
+  background: var(--streak-500);
+  color: white;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ===== Section: dial ===== */
+.tt-dial-section { background: var(--surface); padding: 128px var(--gutter); text-align: center; }
+.tt-dial-section .tt-h2 { max-width: 720px; margin: 0 auto; }
+.tt-dial-section .tt-lead { margin: 24px auto 64px; }
+.tt-dial-figure { display: flex; justify-content: center; }
+.tt-dial-wrap { width: clamp(280px, 60vw, 520px); }
+.tt-dial-legend { margin: 56px auto 0; max-width: 720px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; }
+.tt-dial-legend span { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-600); font-weight: 500; }
+.tt-dial-legend span::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+
+/* Dial: ring focus state
+   기본은 두 링 모두 풀 색상. 버튼을 누르고 있는 동안 해당 링만 더 진하게 + 확대.
+   강조되지 않은 링은 그대로 둔다(다른 링을 죽이지 않음).
+   회전(-90deg)은 CSS로 이전해 scale과 합성 가능하게 한다. */
+.tt-dial-ring {
+  transform: rotate(-90deg);
+  transform-origin: 0 0;
+  transition: filter .2s var(--ease-out), transform .25s var(--ease-out);
+}
+.tt-dial-section[data-focus="planned"] .tt-dial-ring--planned {
+  filter: saturate(1.3);
+  transform: rotate(-90deg) scale(1.04);
+}
+.tt-dial-section[data-focus="actual"]  .tt-dial-ring--actual {
+  filter: saturate(1.3);
+  transform: rotate(-90deg) scale(1.04);
+}
+
+/* Dial: 24개 시각 라벨 */
+.tt-dial-hours { font-family: var(--font-sans); font-size: 7px; fill: var(--ink-700); font-weight: 600; }
+
+/* Dial: 1시간 간격 분리선 — 링을 가로질러 24분할로 표시 */
+.tt-dial-spokes line {
+  stroke: var(--paper);
+  stroke-width: 1.5;
+  stroke-linecap: butt;
+}
+
+/* Dial: 계획 / 실제 토글 라벨 (가로 알약형 클릭 버튼) */
+.tt-dial-toggle { cursor: pointer; }
+.tt-dial-toggle-hit {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 0.8;
+  transition: fill .15s var(--ease-out), stroke .15s var(--ease-out);
+}
+.tt-dial-toggle:hover .tt-dial-toggle-hit { fill: rgba(168, 191, 166, 0.12); }
+.tt-dial-toggle:focus { outline: none; }
+.tt-dial-toggle:focus-visible .tt-dial-toggle-hit {
+  fill: rgba(168, 191, 166, 0.16);
+  stroke: var(--sage-700);
+}
+.tt-dial-toggle[aria-pressed="true"] .tt-dial-toggle-hit {
+  fill: var(--surface-2);
+  stroke: var(--hairline-strong);
+}
+.tt-dial-toggle-text {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  fill: var(--ink-700);
+  transition: fill .2s var(--ease-out), font-weight .2s var(--ease-out);
+  user-select: none;
+  pointer-events: none;
+}
+.tt-dial-toggle[aria-pressed="true"] .tt-dial-toggle-text {
+  fill: var(--ink-900);
+  font-weight: 700;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tt-dial-ring, .tt-dial-toggle-hit, .tt-dial-toggle-text { transition: none; }
+}
+
+/* ===== Split sections ===== */
+.tt-split { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; padding: 0 var(--gutter); }
+.tt-split--reverse .tt-split-text { order: 2; }
+.tt-split--reverse .tt-split-figure { order: 1; }
+.tt-split-figure { display: flex; justify-content: center; }
+.tt-split-text { max-width: 480px; }
+.tt-split-text .tt-h2 { margin-top: 18px; }
+.tt-split-text p { margin: 20px 0 0; font-size: 17px; line-height: 1.65; color: var(--ink-700); }
+
+/* ===== Two-phone figure ===== */
+.tt-two-phones { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: end; }
+.tt-two-phones .tt-phone:first-child { transform: translateY(28px); }
+
+/* ===== Stats block ===== */
+.tt-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 480px; }
+.tt-stat {
+  background: var(--surface); border-radius: 20px; padding: 22px 24px;
+  box-shadow: var(--elev-1); display: flex; flex-direction: column; gap: 6px;
+}
+.tt-stat-row { display: flex; align-items: center; gap: 10px; }
+.tt-stat-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.tt-stat-cat { font-size: 13px; color: var(--ink-600); font-weight: 500; }
+.tt-stat-num { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.tt-stat-num small { font-size: 18px; font-weight: 600; margin-left: 2px; }
+
+/* ===== Quote / For everyone ===== */
+.tt-quote-section { padding: 160px var(--gutter); text-align: center; }
+.tt-quote {
+  font-size: clamp(34px, 4.5vw, 56px); line-height: 1.18; letter-spacing: -0.02em;
+  font-weight: 700; color: var(--ink-900); max-width: 880px; margin: 0 auto;
+  text-wrap: balance;
+}
+.tt-quote .mute { color: var(--ink-400); }
+
+/* ===== CTA ===== */
+.tt-cta-section { background: var(--sage-700); color: white; padding: 128px var(--gutter); text-align: center; }
+.tt-cta-section .tt-h2 { color: white; }
+.tt-cta-section .tt-lead { color: rgba(255,255,255,0.78); margin: 24px auto 40px; }
+.tt-cta-section .tt-store-btn { background: white; color: var(--ink-900); }
+.tt-cta-section .tt-store-btn .tt-store-sub { opacity: .6; }
+.tt-cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ===== Footer ===== */
+.tt-footer { padding: 48px var(--gutter); border-top: 1px solid var(--hairline); }
+.tt-footer-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; font-size: 13px; color: var(--ink-600); }
+.tt-footer-inner .tt-spacer { flex: 1; }
+.tt-footer-inner a:hover { color: var(--ink-900); }
+
+/* ===== Motion: reveal on scroll ===== */
+.tt-reveal { opacity: 0; transform: translateY(8px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.tt-reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .tt-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .tt-section { padding: 72px var(--gutter); }
+  .tt-hero-grid, .tt-split { grid-template-columns: 1fr; gap: 48px; }
+  .tt-split--reverse .tt-split-text { order: 0; }
+  .tt-split--reverse .tt-split-figure { order: 0; }
+  .tt-quote-section { padding: 96px var(--gutter); }
+  .tt-cta-section, .tt-dial-section { padding: 96px var(--gutter); }
+  .tt-hero { padding: 48px var(--gutter); }
+  .tt-phone--lg { width: 280px; }
+}
+@media (max-width: 720px) {
+  .tt-nav { gap: 16px; }
+  .tt-nav-menu { gap: 16px; }
+  .tt-nav-menu a { font-size: 13px; }
+}
+@media (max-width: 540px) {
+  .tt-header-inner { gap: 10px; }
+  .tt-logo span:not(.mark) { display: none; }
+  .tt-nav-menu { display: none; }
+  .tt-stats { grid-template-columns: 1fr; }
+}

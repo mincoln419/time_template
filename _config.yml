@@ -1,10 +1,9 @@
 # GitHub Pages 설정
-title: 시누이 - 시간을 누적하고 이정표를 세우다
-description: 시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱
-author: CodeNYang
-email: contact@codenyang.com
-url: https://codenyang.github.io/shinui
-baseurl: /shinui
+title: 타임템플릿 - 하루를 디자인하다
+description: 24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱
+author: mincoln419
+url: https://mincoln419.github.io
+baseurl: /time_template
 
 # SEO 설정
 lang: ko
@@ -19,32 +18,20 @@ plugins:
 # SEO 태그 설정
 seo:
   type: WebSite
-  name: 시누이
-  description: 시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱
-  image: /assets/images/og-image.png
+  name: 타임템플릿
+  description: 24시간 시계로 하루를 계획하고 회고하는 시간 관리 앱
+  image: /assets/screens/ko/09-home-radial.jpg
   twitter:
     card: summary_large_image
-    creator: "@codenyang"
-  facebook:
-    app_id: "your-facebook-app-id"
-    publisher: "https://facebook.com/codenyang"
 
 # 네비게이션
 navigation:
   - title: 홈
     url: /
-  - title: 다운로드
-    url: /#download
   - title: 개인정보처리방침
     url: /privacy.html
   - title: 이용약관
     url: /terms.html
-
-# 소셜 링크
-social:
-  github: codenyang
-  email: contact@codenyang.com
-  twitter: codenyang
 
 # 빌드 설정
 exclude:

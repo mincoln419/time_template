@@ -40,3 +40,6 @@ build/
 
 
 
+
+# bkit plugin state
+.bkit/
